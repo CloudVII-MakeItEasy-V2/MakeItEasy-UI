@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.css";
+import "./customerService.css";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import ProfilePage from "./profile";
-import TicketPage from "./ticket"
-import MakeOrderPage from "./makeOrder"
-import TrackOrderPage from "./trackOrder"
-import OrderHistoryPage from "./orderHistory"
+import ProfilePage from "./share/profile";
+import TicketPage from "./share/ticket"
+import MakeOrderPage from "./share/makeOrder"
+import TrackOrderPage from "./share/trackOrder"
+import OrderHistoryPage from "./share/orderHistory"
 function Header() {
   return (
   <header className="header">
@@ -103,14 +103,14 @@ function Feature({ title, description }) {
 
 // Footer Section
 function Footer() {
-  return <footer className="footer" style={footerStyle}>© 2024 MakeItEasy. All rights reserved.</footer>;
+  return <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>;
 }
 
-// Main App Component
-function App() {
+// Main Component
+function CustomerService() {
   return (
     <Router>
-      <div className="app-container">
+      <div className="customerService-container">
         {/* Put Header outside of Routes to show it on every page */}
         <Header />
 
@@ -127,7 +127,7 @@ function App() {
             )}
           />
 
-          {/* Profile Page Route */}
+          {/* Route to subpages */}
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/ticket" element={<TicketPage />} />
           <Route path="/makeOrder" element={<MakeOrderPage />} />
@@ -136,11 +136,12 @@ function App() {
         </Routes>
 
         {/* Footer outside of Routes to show it on every page */}
-        <Footer />
+      
       </div>
+      <Footer />
     </Router>
   );
 }
 
 
-export default App;
+export default CustomerService;

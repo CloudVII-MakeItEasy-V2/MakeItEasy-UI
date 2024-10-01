@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./makeOrder.css";
 import SearchBox from "./searchBox";
 import CartBar from "./cartBar";
-import RecommendationList from "./RecommendationList";
+import RecommendationList from "./recommendationList";
 class OrderItem {
   constructor(productId, quantity, price, orderId = null) {
     // orderId is optional, this is because when the item is only in cart but not in an order, it may not have orderId

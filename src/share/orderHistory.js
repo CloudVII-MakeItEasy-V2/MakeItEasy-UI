@@ -59,7 +59,7 @@ function OrderHistoryPage() {
   return (
     <div className="order-history-container">
       <h1>Order History</h1>
-      <p>Here is the history of your past orders:</p>
+      <p>Here is the history of your orders:</p>
 
       {orders.length === 0 ? (
         <p>No orders found.</p>

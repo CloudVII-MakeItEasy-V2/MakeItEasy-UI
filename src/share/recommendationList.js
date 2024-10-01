@@ -1,9 +1,8 @@
 import React from "react";
-
+import "./recommendationList.css"
 function RecommendationList({ items, onAddToCart }) {
   return (
     <div className="item-list">
-      <h3>Recommended Items</h3>
       {items.length > 0 ? (
         items.map((item) => (
           <div key={item.id} className="item">

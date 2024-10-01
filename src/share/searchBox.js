@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./searchBox.css"
 function SearchBox({ onSearch }) {
   const [inputValue, setInputValue] = useState("");
 
