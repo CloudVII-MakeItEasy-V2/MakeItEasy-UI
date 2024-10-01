@@ -110,7 +110,7 @@ function Footer() {
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app-container">
         {/* Put Header outside of Routes to show it on every page */}
         <Header />
 
@@ -142,14 +142,5 @@ function App() {
   );
 }
 
-const footerStyle = {
-  backgroundColor: "#333",
-  color: "white",
-  textAlign: "center",
-  padding: "1rem",
-  position: "fixed",
-  width: "100%",
-  bottom: 0,
-};
 
 export default App;

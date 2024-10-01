@@ -1,74 +1,78 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  height: 100%;      
+  margin: 0;                  
+  padding: 0;             
+  box-sizing: border-box;      
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app-container {
+  width: 100%;                
+  height: 100%;              
+  margin: 0 auto;             
+  background-color: #E3C6C2;
+  border-radius: 10px;      
+  padding: 5px;               
+  display: flex;            
+  flex-direction: column;     
 }
 .header {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #AC7B77; /* Dark background */
-  color: #fff; /* White text */
-  padding: 1rem 2rem; /* Padding around the header */
+  background-color: #AC7B77;
+  color: #fff;
 }
 .button-group {
-  display: flex; /* Flex container for the buttons */
-  gap: 10px; /* Space between the buttons */
+  display: flex; 
+  gap: 10px;
 }
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
 .ticket-btn {     
-  width: 50px; /* Circle size */     
+  width: 50px;   
   height: 50px;     
-  border-radius: 50%; /* Circular shape */     
-  background-color: #E3C6C2; /* Green background for ticket support */     
+  border-radius: 50%;     
+  background-color: #E3C6C2;   
   border: none;     
   color: white;     
-  font-size: 1.5rem; /* Font size for the icon */     
+  font-size: 1.5rem;     
   cursor: pointer;     
   display: flex;     
   align-items: center;     
   justify-content: center;   
 }   
 .ticket-btn:hover {     
-    background-color: #E3C6C2; /* Darker green on hover */   
+    background-color: #E3C6C2; 
 }
 .profile-btn {
-  width: 50px; /* Height and width should be equal for a perfect circle */
+  width: 50px;
   height: 50px;
-  border-radius: 50%; /* This makes it circular */
-  background-color: #E3C6C2; /* Button color */
-  border: none; /* Remove borders */
-  color: white; /* Text color */
-  font-size: 1rem; /* Font size */
-  font-weight: bold; /* Make text or icon bold */
-  cursor: pointer; /* Change cursor to pointer */
-  display: flex; /* Flexbox for centering text/icon */
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
+  border-radius: 50%; 
+  background-color: #E3C6C2; 
+  border: none; 
+  color: white; 
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
 }
 .profile-btn:hover {
-  background-color: #E3C6C2; /* Darker shade on hover */
+  background-color: #E3C6C2; 
 }
 
 .services {
   display: flex;
   min-height: 420px;
-  justify-content: space-between; /* Spread out columns horizontally */
-  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between;
+  align-items: flex-start; 
   padding: 2rem 0;
   background-color: #E3C6C2;
-  gap: 20px; /* Add spacing between columns */
+  gap: 20px; 
 }
 
 .service-column {
@@ -77,11 +81,11 @@ code {
   border: 1px solid #AC7B77;
   border-radius: 8px;
   padding: 1.5rem;
-  flex: 1; /* Ensure columns take up equal space */
+  flex: 1; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  margin: 0 10px; /* Add margin between columns */
-  max-width: 300px; /* Restrict column width */
+  margin: 0 10px; 
+  max-width: 300px; 
 }
 
 .service-column h2 {
@@ -95,24 +99,23 @@ code {
 }
 
 .service-column:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+  transform: translateY(-5px); 
 }
 
-/* Add responsiveness for smaller screens */
 @media (max-width: 768px) {
   .services {
-    flex-direction: column; /* Stack columns vertically on small screens */
-    align-items: center; /* Center columns */
+    flex-direction: column; 
+    align-items: center;
   }
 
   .service-column {
-    margin-bottom: 20px; /* Add space between stacked columns */
-    max-width: 80%; /* Ensure columns don't stretch too wide */
+    margin-bottom: 20px; 
+    max-width: 80%; 
   }
 }
 .features {
-  display: flex; /* Align items in a row */
-  justify-content: space-around; /* Space between columns */
+  display: flex; 
+  justify-content: space-around;
   padding: 2rem;
   background-color: #A86F6F;
 }
@@ -121,10 +124,10 @@ code {
   background-color: #E3C6C2;
   padding: 1rem;
   border-radius: 5px;
-  width: 30%; /* Equal width for each feature column */
+  width: 30%; 
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for visual effect */
-  transition: transform 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease;
 }
 .featureStyle h3 {
   color: #7E312D;
@@ -135,19 +138,28 @@ code {
   font-size: 1rem;
   color: #A17977;
 }
-/* Hover effect for each feature */
+
 .featureStyle:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+  transform: translateY(-5px); 
 }
 
 @media (max-width: 768px) {
   .features {
-    flex-direction: column; /* Stack columns vertically on smaller screens */
+    flex-direction: column;
     align-items: center;
   }
 
   .featureStyle {
-    width: 80%; /* Make the feature boxes wider on small screens */
+    width: 80%; 
     margin-bottom: 1rem;
   }
 }
+.footerStyle{
+  background-color: "#333";
+  color: "white";
+  text-align: "center";
+  padding: "1rem";
+  position: flex;
+  width: "100%";
+  bottom: 0;
+};
