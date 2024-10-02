@@ -1,0 +1,26 @@
+
+.bold{
+  font-weight: bold;
+}
+.back-button{
+  align-items: left;
+}
+.account-container {
+  padding: 20px; /* Optional: To give some padding around the content */
+}
+
+
+.back-button {
+  margin-top: 10px; /* Adds margin from the top */
+  margin-left: 0 !important;   /* Aligns the button to the left */
+  padding: 10px 20px; /* Add some padding inside the button for a better look */
+  background-color: #03396c; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Show pointer on hover */
+  border-radius: 20px;
+}
+
+.left{
+  width: 800px; 
+}

@@ -1,0 +1,74 @@
+.product-container {
+  padding: 20px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.product-table th, .product-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: 		#03396c;
+  font-weight: bold;
+  color: 	#b3cde0;
+  font-weight: bold;
+}
+
+.product-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-button, .delete-button, .add-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: white;
+  color: 	#011f4b;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: 	#011f4b;
+  color: white;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.add-button {
+  margin-top: 3px;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #1976D2;
+}
+
+

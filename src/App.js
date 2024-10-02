@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import React from 'react';
+import './Styles/App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Seller from './components/Seller/Seller';
+import Account from './components/Seller/Account/account';
+import Orders from './components/Seller/Orders/trackOrder';
+import ManageProduct from './components/Seller/Product/manageProduct';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar'; // Import the Navbar component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar /> {/* Add the Navbar at the top */}
+        <Routes>
+          <Route path="/" element={<Seller />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/product" element={<ManageProduct />} />
+          {/* Add a route for Profile */}
+          <Route path="/profile" element={<Account />} />
+        </Routes>
+        <Footer /> {/* Footer remains at the bottom */}
+      </div>
+    </Router>
   );
 }
 
