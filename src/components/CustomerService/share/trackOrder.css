@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+}
+.track-order-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .tracking-input {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .track-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #C79090;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .track-button:hover {
+    background-color: #C79090;
+  }
