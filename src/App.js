@@ -32,9 +32,9 @@ function App() {
 
         {/* Seller Service Page and Subpages */}
         <Route path="/SellerService" element={<SellerService />} />
-        <Route path="/SellerOrders" element={<Orders />} />
-        <Route path="/SellerProduct" element={<ManageProduct />} />
-        <Route path="/SellerProfile" element={<Account />} />
+        <Route path="/SellerOrders" element={<SellerOrders />} />
+        <Route path="/SellerProduct" element={<SellerManageProduct />} />
+        <Route path="/SellerProfile" element={<SellerAccount />} />
       </Routes>
     </Router>
   );
