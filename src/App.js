@@ -12,9 +12,9 @@ import OrderHistoryPage from "./components/CustomerService/share/orderHistory";
 
 import SellerService from './components/SellerService/sellerService';
 
-import Orders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
-import ManageProduct from './components/SellerService/components/Seller/Product/manageProduct'; // Adjusted path for ManageProduct
-import Account from './components/SellerService/components/Seller/Account/account'; // Adjusted path for Account
+import SellerOrders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
+import SellerManageProduct from './components/SellerService/components/Seller/Product/manageProduct'; // Adjusted path for ManageProduct
+import SellerAccount from './components/SellerService/components/Seller/Account/account'; // Adjusted path for Account
 
 function App() {
   return (
