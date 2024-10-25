@@ -7,9 +7,9 @@ import CustomerService from './components/CustomerService/customerService';
 
 import SellerService from './components/SellerService/sellerService';
 
-import Orders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
-import ManageProduct from './components/SellerService/components/Seller/Product/manageProduct'; // Adjusted path for ManageProduct
-import Account from './components/SellerService/components/Seller/Account/account'; // Adjusted path for Account
+import SellerOrders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
+import SellerManageProduct from './components/SellerService/components/Seller/Product/manageProduct'; // Adjusted path for ManageProduct
+import SellerAccount from './components/SellerService/components/Seller/Account/account'; // Adjusted path for Account
 
 function App() {
   return (
@@ -23,9 +23,9 @@ function App() {
 
         {/* Seller Service Page and Subpages */}
         <Route path="/SellerService" element={<SellerService />} />
-        <Route path="/SellerOrders" element={<Orders />} />
-        <Route path="/SellerProduct" element={<ManageProduct />} />
-        <Route path="/SellerProfile" element={<Account />} />
+        <Route path="/SellerOrders" element={<SellerOrders />} />
+        <Route path="/SellerProduct" element={<SellerManageProduct />} />
+        <Route path="/SellerProfile" element={<SellerAccount />} />
       </Routes>
     </Router>
   );

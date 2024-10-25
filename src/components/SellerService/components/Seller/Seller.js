@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../Styles/Seller.css'; // Import the CSS file for styling
 
+import '../Navbar.js'
 const Seller = () => {
   return (
     <div className="seller-container">
