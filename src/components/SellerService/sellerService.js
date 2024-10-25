@@ -1,8 +1,19 @@
-// src/components/SellerPage.js
+// src/components/SellerService/seller.js
 import React from 'react';
+import './Styles/App.css';
+import Seller from './components/Seller/Seller';
 
-const SellerPage = () => {
-  return <h1>Welcome to the Seller Page</h1>;
-};
+import Footer from './components/Footer';
+import Navbar from './components/Navbar'; // Import the Navbar component
 
-export default SellerPage;
+function SellerService() {
+  return (
+    <div className="App">
+      <Navbar /> {/* Add the Navbar at the top */}
+      <Seller /> {/* The default content for the SellerService page */}
+      <Footer /> {/* Footer remains at the bottom */}
+    </div>
+  );
+}
+
+export default SellerService;

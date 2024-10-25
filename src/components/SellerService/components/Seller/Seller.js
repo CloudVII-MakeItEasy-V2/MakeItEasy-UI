@@ -7,14 +7,14 @@ const Seller = () => {
   return (
     <div className="seller-container">
       <div className="rectangles">
-        <Link to="/orders" className="rectangle">
+        <Link to="/SellerOrders" className="rectangle">
         <div> 
         <div>  <h1>Orders</h1> </div>
         <div>   <p> track, manage, and update the status of customer orders.</p></div>
         </div>
     
         </Link>
-        <Link to="/product" className="rectangle">
+        <Link to="/Sellerproduct" className="rectangle">
         <div> 
         <div>  <h1>Products</h1> </div>
         <div>  
