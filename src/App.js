@@ -9,7 +9,7 @@ import TicketPage from "./components/CustomerService/share/ticket";
 import MakeOrderPage from "./components/CustomerService/share/makeOrder";
 import TrackOrderPage from "./components/CustomerService/share/trackOrder";
 import OrderHistoryPage from "./components/CustomerService/share/orderHistory";
-
+import CustomerLogin from "./components/CustomerService/Login/login"
 import SellerService from './components/SellerService/sellerService';
 
 import SellerOrders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
@@ -29,7 +29,7 @@ function App() {
         <Route path="/CustomerOrderHistory" element={<OrderHistoryPage />} />
         {/* Customer Service Page */}
         <Route path="/CustomerService" element={<CustomerService />} />
-
+        <Route path="/CustomerLogin" element={<CustomerLogin />} />
         {/* Seller Service Page and Subpages */}
         <Route path="/SellerService" element={<SellerService />} />
         <Route path="/SellerOrders" element={<SellerOrders />} />

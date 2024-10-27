@@ -2,11 +2,6 @@
 import React from "react";
 import "./customerService.css";
 import { useNavigate } from "react-router-dom";
-import ProfilePage from "./share/profile";
-import TicketPage from "./share/ticket";
-import MakeOrderPage from "./share/makeOrder";
-import TrackOrderPage from "./share/trackOrder";
-import OrderHistoryPage from "./share/orderHistory";
 
 function Header() {
   return (
