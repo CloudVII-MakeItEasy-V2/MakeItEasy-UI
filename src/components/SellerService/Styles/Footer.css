@@ -1,0 +1,14 @@
+/* src/components/Footer.css */
+
+.footer {
+  background-color: #000; /* Black background */
+  color: white;            /* White text */
+  text-align: center;     /* Centered text */
+  padding: 20px 0;        /* Vertical padding */
+  position: fixed;        /* Fixed at the bottom */
+  width: 100%;            /* Full width */
+  bottom: 0;              /* Align to the bottom */
+  left: 0;                /* Align to the left */
+  font-size: 14px;        /* Font size */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}

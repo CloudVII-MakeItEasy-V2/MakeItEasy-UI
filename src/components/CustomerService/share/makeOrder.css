@@ -1,0 +1,18 @@
+.makeOrder-container {
+  display: flex;                  /* Enable Flexbox */
+  justify-content: flex-start;     /* Align content to the top vertically */
+  align-items: center;             /* Center the content horizontally */
+  flex-direction: column;          /* Stack items vertically */
+  background-color: #E3C6C2;
+  padding: 0 20px 20px;            /* Remove top padding, keep padding on right, bottom, and left */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100vh;                   /* Full viewport height */
+}
+
+.h1 {
+  text-align: center;              /* Center the text horizontally */
+  color: #333;
+  margin-top: 0;                   /* Ensure no default margin at the top */
+}
