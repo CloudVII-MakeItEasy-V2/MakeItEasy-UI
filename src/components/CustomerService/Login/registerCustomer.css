@@ -1,22 +1,15 @@
-/* src/components/Login.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #E3C6C2;
-}
-
-.login-container {
+.register-container {
     width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
+    max-width: 500px;
+    margin: 20px auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #A17977;
-    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: #FFFFFF;
+    border-radius: 10px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 label {
@@ -27,9 +20,10 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="email"],
+input[type="tel"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -49,15 +43,5 @@ button {
 }
 
 button:hover {
-    background-color: #A17977;
-}
-
-.register-link {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.register-link a {
-    color: #FFFFFF;
-    text-decoration: underline;
+    background-color: #BEA1A1;
 }

@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./orderHistory.css";
 
-// call API to get this customer's orders
-const fetchOrderHistory = async (customerId) => {
-  //const response = await fetch(`/api/orders?customerId=${customerId}`);
-  //const data = await response.json();
-  // hard-coded data for temporary use
-  const data = [
-    {
-      "id": 1,
-      "date": "2024-09-29T12:34:00Z",
-      "total": 120.50,
-      "status": "Delivered"
-    },
-    {
-      "id": 2,
-      "date": "2024-09-15T09:15:00Z",
-      "total": 75.00,
-      "status": "Shipped"
-    }
-  ]
-  return data;
+// Base URL for the order service, update with your actual environment's URL
+const ORDER_SERVICE_URL = "http://localhost:8080";
+
+// Function to call API to get this customer's orders
+const fetchOrderHistory = async (customerId, status = '', page = 1, per_page = 10) => {
+  try {
+    const url = `${ORDER_SERVICE_URL}/customer/${customerId}/orders?` +
+                `${status && `status=${status}&`}page=${page}&per_page=${per_page}`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Network response was not ok.');
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching order history:', error);
+    throw error;
+  }
 };
 
 function OrderHistoryPage() {
@@ -28,15 +23,18 @@ function OrderHistoryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
-  // hard-coded data for temporary use
-  const customerId = "1234567";
+  // Hard-coded data for temporary use
+  const customerId = "1";
+  const status = 'Pending'; // Add status if needed
+  const page = 1;
+  const per_page = 10;
 
   useEffect(() => {
     const loadOrderHistory = async () => {
       try {
         setLoading(true);
-        const fetchedOrders = await fetchOrderHistory(customerId);
-        // present order from the most recent to the oldest
+        const fetchedOrders = await fetchOrderHistory(customerId, status, page, per_page);
+        // Present order from the most recent to the oldest
         const sortedOrders = fetchedOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
         setOrders(sortedOrders);
       } catch (err) {
@@ -46,7 +44,7 @@ function OrderHistoryPage() {
       }
     };
     loadOrderHistory();
-  }, [customerId]);
+  }, [customerId, status, page, per_page]);
 
   if (loading) {
     return <p>Loading order history...</p>;
