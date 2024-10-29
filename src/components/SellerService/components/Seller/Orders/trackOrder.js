@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../Styles/Orders.css';
+import Navbar from '../../Navbar'; // Adjust the path as necessary
+import Footer from '../../Footer'; // Adjust the path as necessary
 
 const Orders = () => {
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ const Orders = () => {
 
   return (
     <div className="orders-container">
+          <Navbar />
       <div className="left">
         <button onClick={() => navigate('/SellerService')} className="back-button">
           Home
@@ -84,6 +87,7 @@ const Orders = () => {
         </tbody>
       </table>
       </div>
+      <Footer />
     </div>
   );
 };

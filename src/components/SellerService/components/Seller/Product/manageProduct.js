@@ -2,7 +2,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
- import '../../../Styles/Product.css'; // Uncomment when you add styling
+import '../../../Styles/Product.css'; // Uncomment when you add styling
+import Navbar from '../../Navbar'; // Adjust the path as necessary
+import Footer from '../../Footer'; // Adjust the path as necessary
 
 const ManageProduct = () => {
   const navigate = useNavigate();
@@ -37,6 +39,7 @@ const ManageProduct = () => {
 
   return (
     <div className="product-container">
+          <Navbar />
       <div className="left">
       <button onClick={() => navigate('/SellerService')} className="back-button">
         Home
@@ -83,7 +86,7 @@ const ManageProduct = () => {
           ))}
         </tbody>
       </table>
-
+      <Footer />
     </div>
   );
 };

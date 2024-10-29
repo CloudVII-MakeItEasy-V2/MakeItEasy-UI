@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../Styles/Account.css';
+import Navbar from '../../Navbar'; // Adjust the path as necessary
+import Footer from '../../Footer'; // Adjust the path as necessary
 
 const Account = () => {
   const navigate = useNavigate();
@@ -36,16 +38,25 @@ const Account = () => {
   }
 
   return (
-    <div className="account-container">
-      <button onClick={() => navigate('/SellerService')} className="back-button">
-        Home
-      </button>
-      <h1>Seller Profile</h1>
-      <p><strong>Seller ID:</strong> {sellerInfo.id}</p>
-      <p><strong>Name:</strong> {sellerInfo.name}</p>
-      <p><strong>Email:</strong> {sellerInfo.email}</p>
-      <p><strong>Address:</strong> {sellerInfo.address || 'Not provided'}</p>
-      <p><strong>Phone:</strong> {sellerInfo.phone || 'Not provided'}</p>
+    <div className="account-page">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Account Info */}
+      <div className="account-container">
+        <button onClick={() => navigate('/SellerService')} className="back-button">
+          Home
+        </button>
+        <h1>Seller Profile</h1>
+        <p><strong>Seller ID:</strong> {sellerInfo.id}</p>
+        <p><strong>Name:</strong> {sellerInfo.name}</p>
+        <p><strong>Email:</strong> {sellerInfo.email}</p>
+        <p><strong>Address:</strong> {sellerInfo.address || 'Not provided'}</p>
+        <p><strong>Phone:</strong> {sellerInfo.phone || 'Not provided'}</p>
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
