@@ -38,7 +38,7 @@ const ManageProduct = () => {
   return (
     <div className="product-container">
       <div className="left">
-      <button onClick={() => navigate('/')} className="back-button">
+      <button onClick={() => navigate('/SellerService')} className="back-button">
         Home
       </button>
       </div>

@@ -1,0 +1,18 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm strat
+8 verbose argv "strat"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-10-29T02_03_37_116Z-
+10 verbose logfile /Users/lixiachen/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-10-29T02_03_37_116Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd /Users/lixiachen/MakeItEasy-UI
+13 verbose os Darwin 23.6.0
+14 verbose node v22.8.0
+15 verbose npm  v10.8.3
+16 verbose exit 1
+17 verbose code 1

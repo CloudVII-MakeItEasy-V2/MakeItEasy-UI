@@ -7,6 +7,8 @@
 }
 .account-container {
   padding: 20px; /* Optional: To give some padding around the content */
+  align-items:center;
+  text-align: center;
 }
 
 

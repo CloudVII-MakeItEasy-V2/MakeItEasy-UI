@@ -1,45 +1,51 @@
-// src/components/Seller/Account/account.js
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../Styles/Account.css';
 
 const Account = () => {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
+  const [sellerInfo, setSellerInfo] = useState(null);
+
+  useEffect(() => {
+    const fetchSellerInfo = async () => {
+      const sellerId = localStorage.getItem('sellerId'); // Retrieve the seller ID from localStorage
+      if (!sellerId) {
+        alert('No seller logged in');
+        navigate('/SellerLogin');
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:5001/sellers/${sellerId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setSellerInfo(data);
+        } else {
+          console.error('Failed to fetch seller info');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchSellerInfo();
+  }, [navigate]);
+
+  if (!sellerInfo) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="account-container">
-      <div className="left">
-        <button onClick={() => navigate('/')} className="back-button">
+      <button onClick={() => navigate('/SellerService')} className="back-button">
         Home
       </button>
-      </div>
-      <div>
-          <h1>Seller Profile</h1>
-      </div>
-      <div>
-  <p>
-    <span className='bold'>Seller ID: </span> 123456
-  </p>
-
-  <p>
-    <span className='bold'>Name: </span> some seller
-  </p>
-
-  <p>
-    <span className='bold'>Email: </span> seller@sellerCompany.com
-  </p>
-
-  <p>
-    <span className='bold'>Address: </span> New York
-  </p>
-
-  <p>
-    <span className='bold'>Phone: </span> +1 123-123-123
-  </p>
-</div>
-
-      
+      <h1>Seller Profile</h1>
+      <p><strong>Seller ID:</strong> {sellerInfo.id}</p>
+      <p><strong>Name:</strong> {sellerInfo.name}</p>
+      <p><strong>Email:</strong> {sellerInfo.email}</p>
+      <p><strong>Address:</strong> {sellerInfo.address || 'Not provided'}</p>
+      <p><strong>Phone:</strong> {sellerInfo.phone || 'Not provided'}</p>
     </div>
   );
 };

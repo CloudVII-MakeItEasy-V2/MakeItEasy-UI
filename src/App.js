@@ -10,6 +10,7 @@ import MakeOrderPage from "./components/CustomerService/share/makeOrder";
 import TrackOrderPage from "./components/CustomerService/share/trackOrder";
 import OrderHistoryPage from "./components/CustomerService/share/orderHistory";
 
+import SellerLogin from './components/SellerLogin/SellerLogin';
 import SellerService from './components/SellerService/sellerService';
 
 import SellerOrders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
@@ -31,6 +32,7 @@ function App() {
         <Route path="/CustomerService" element={<CustomerService />} />
 
         {/* Seller Service Page and Subpages */}
+        <Route path="/SellerLogin" element={<SellerLogin />} />
         <Route path="/SellerService" element={<SellerService />} />
         <Route path="/SellerOrders" element={<SellerOrders />} />
         <Route path="/SellerProduct" element={<SellerManageProduct />} />
