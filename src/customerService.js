@@ -1,26 +1,28 @@
-// src/components/CustomerService/customer.js
 import React from "react";
 import "./customerService.css";
-import { useNavigate } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import ProfilePage from "./share/profile";
+import TicketPage from "./share/ticket"
+import MakeOrderPage from "./share/makeOrder"
+import TrackOrderPage from "./share/trackOrder"
+import OrderHistoryPage from "./share/orderHistory"
 function Header() {
   return (
-    <header className="header">
-      <div className="logo">Welcome Customer!</div>
-      <div className="button-group">
+  <header className="header">
+  <div className="logo">Welcome Customer!</div>
+  <div className="button-group">
         <TicketButton />
         <ProfileButton />
-      </div>
-    </header>
+  </div>
+  </header>
   );
-}
-
+  }
 // Profile Button Component
 function ProfileButton() {
   const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleClick = () => {
-    navigate("/CustomerProfile"); // Navigate to the profile page
+    navigate("/profile"); // Navigate to the profile page
   };
 
   return (
@@ -29,34 +31,30 @@ function ProfileButton() {
     </button>
   );
 }
-
-// Ticket Button Component
 function TicketButton() {
   const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleClick = () => {
-    navigate("/CustomerTicket"); // Navigate to the ticket page
+    navigate("/ticket"); // Navigate to the profile page
   };
-
   return (
     <button className="ticket-btn" onClick={handleClick}>
       <i className="fas fa-headset"></i>
     </button>
   );
 }
-
 // Service Section
 function Service() {
   const navigate = useNavigate(); // Hook to navigate programmatically
 
   const toMakeOrder = () => {
-    navigate("/CustomerMakeOrder"); // Navigate to the make order page
+    navigate("/makeOrder"); // Navigate to the profile page
   };
   const toTrackOrder = () => {
-    navigate("/CustomerTrackOrder"); // Navigate to the track order page
+    navigate("/trackOrder"); // Navigate to the profile page
   };
   const toOrderHistory = () => {
-    navigate("/CustomerOrderHistory"); // Navigate to the order history page
+    navigate("/orderHistory"); // Navigate to the profile page
   };
   return (
     <section className="services">
@@ -108,21 +106,42 @@ function Footer() {
   return <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>;
 }
 
-// Main Component (without Router)
+// Main Component
 function CustomerService() {
   return (
-    <div className="customerService-container">
-      {/* Header to show on every page */}
-      <Header />
+    <Router>
+      <div className="customerService-container">
+        {/* Put Header outside of Routes to show it on every page */}
+        <Header />
 
-      {/* Main content of the Customer Service */}
-      <Service />
-      <Features />
+        {/* Define routes for different pages */}
+        <Routes>
+          {/* Home Page Route */}
+          <Route
+            path="/"
+            element={(
+              <>
+                <Service />
+                <Features />
+              </>
+            )}
+          />
 
-      {/* Footer */}
+          {/* Route to subpages */}
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/ticket" element={<TicketPage />} />
+          <Route path="/makeOrder" element={<MakeOrderPage />} />
+          <Route path="/trackOrder" element={<TrackOrderPage />} />
+          <Route path="/orderHistory" element={<OrderHistoryPage />} />
+        </Routes>
+
+        {/* Footer outside of Routes to show it on every page */}
+      
+      </div>
       <Footer />
-    </div>
+    </Router>
   );
 }
+
 
 export default CustomerService;

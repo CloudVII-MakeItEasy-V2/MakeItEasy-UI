@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./orderHistory.css";
 
-// call API to get this customer's orders
-const fetchOrderHistory = async (customerId) => {
-  //const response = await fetch(`/api/orders?customerId=${customerId}`);
-  //const data = await response.json();
-  // hard-coded data for temporary use
-  const data = [
-    {
-      "id": 1,
-      "date": "2024-09-29T12:34:00Z",
-      "total": 120.50,
-      "status": "Delivered"
-    },
-    {
-      "id": 2,
-      "date": "2024-09-15T09:15:00Z",
-      "total": 75.00,
-      "status": "Shipped"
-    }
-  ]
-  return data;
+const COMPOSITE_SERVICE_URL = "https://makeiteasy-440104.ue.r.appspot.com";
+const fetchOrderHistory = async (customerId, page = 1, per_page = 10) => {
+  const url = `${COMPOSITE_SERVICE_URL}/customer/${customerId}/orders?page=${page}&per_page=${per_page}`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('Network response was not ok.');
+  return await response.json();
 };
 
 function OrderHistoryPage() {
@@ -28,25 +14,25 @@ function OrderHistoryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
-  // hard-coded data for temporary use
-  const customerId = "1234567";
+  const customerId = 2; // Assuming a hardcoded customer ID for demonstration
+  const page = 1;
+  const per_page = 10;
 
   useEffect(() => {
     const loadOrderHistory = async () => {
       try {
         setLoading(true);
-        const fetchedOrders = await fetchOrderHistory(customerId);
-        // present order from the most recent to the oldest
-        const sortedOrders = fetchedOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setOrders(sortedOrders);
+        const fetchedOrders = await fetchOrderHistory(customerId, page, per_page);
+        setOrders(fetchedOrders);
       } catch (err) {
         setError("Failed to load order history.");
+        console.error(err);
       } finally {
         setLoading(false);
       }
     };
     loadOrderHistory();
-  }, [customerId]);
+  }, [customerId, page, per_page]);
 
   if (loading) {
     return <p>Loading order history...</p>;
@@ -66,17 +52,14 @@ function OrderHistoryPage() {
       ) : (
         <ul className="order-list">
           {orders.map((order) => (
-            <li key={order.id} className="order-item">
-              <div className="order-header">
-                <span>Order ID: {order.id}</span>
-                <span>Date: {new Date(order.date).toLocaleDateString()}</span>
-              </div>
-              <div className="order-details">
-                <p>Total: ${order.total}</p>
-                <p>Status: {order.status}</p>
-              </div>
-            </li>
-          ))}
+  <li key={order.order_id} className="order-item">
+    <div className="order-details">
+      <p>Order ID: {order.order_id}</p>
+      <p>Total: ${Number(order.total_amount).toFixed(2)}</p> {/* Updated this line */}
+      <p>Tracking Number: {order.tracking_number || 'N/A'}</p>
+    </div>
+  </li>
+))}
         </ul>
       )}
     </div>

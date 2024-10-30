@@ -27,8 +27,8 @@ const LandingPage = () => {
         <button onClick={handleSellerLogin}className="btn">
           Log In as Seller
         </button>
-        <button className="btn" onClick={() => navigate('/CustomerService')}>
-          Log In as Customer
+        <button className="btn" onClick={() => navigate('/CustomerLogin')}>
+      Log In as Customer
         </button>
       </div>
       <Footer />
