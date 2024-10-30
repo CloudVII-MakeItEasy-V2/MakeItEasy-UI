@@ -1,0 +1,27 @@
+/* src/Styles/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: 	#011f4b;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar-left h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.navbar-right .navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar-right .navbar-link:hover {
+  color: #ddd;
+}

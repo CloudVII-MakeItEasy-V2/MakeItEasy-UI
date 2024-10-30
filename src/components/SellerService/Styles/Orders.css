@@ -1,0 +1,85 @@
+
+.bold{
+  font-weight: bold;
+}
+.back-button{
+  align-items: left;
+}
+.account-container {
+  padding: 20px; /* Optional: To give some padding around the content */
+}
+
+.back-button {
+  margin-top: 10px; /* Adds margin from the top */
+  margin-left: 0 !important;   /* Aligns the button to the left */
+  padding: 10px 20px; /* Add some padding inside the button for a better look */
+  background-color: #03396c; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Show pointer on hover */
+  border-radius: 20px;
+}
+
+
+.left{
+  width: 800px; 
+}
+
+.orders-container {
+  padding: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.orders-table th, .orders-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.orders-table th {
+  background-color: 		#03396c;
+  font-weight: bold;
+  color: 	#b3cde0;
+}
+
+.orders-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: white;
+  color: 	#011f4b;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: 	#011f4b;
+  color: white;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+
+
+.back-button:hover {
+  background-color: #45a049;
+}
