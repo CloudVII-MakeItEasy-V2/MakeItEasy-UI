@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MakeitEasy/static/css/main.fa20c2d7.css",
-    "main.js": "/MakeitEasy/static/js/main.bcaa3675.js",
-    "static/js/453.927e99c5.chunk.js": "/MakeitEasy/static/js/453.927e99c5.chunk.js",
-    "index.html": "/MakeitEasy/index.html",
-    "main.fa20c2d7.css.map": "/MakeitEasy/static/css/main.fa20c2d7.css.map",
-    "main.bcaa3675.js.map": "/MakeitEasy/static/js/main.bcaa3675.js.map",
-    "453.927e99c5.chunk.js.map": "/MakeitEasy/static/js/453.927e99c5.chunk.js.map"
+    "main.css": "/MakeItEasy-UI/static/css/main.fa20c2d7.css",
+    "main.js": "/MakeItEasy-UI/static/js/main.37dcd82f.js",
+    "static/js/453.927e99c5.chunk.js": "/MakeItEasy-UI/static/js/453.927e99c5.chunk.js",
+    "index.html": "/MakeItEasy-UI/index.html",
+    "main.fa20c2d7.css.map": "/MakeItEasy-UI/static/css/main.fa20c2d7.css.map",
+    "main.37dcd82f.js.map": "/MakeItEasy-UI/static/js/main.37dcd82f.js.map",
+    "453.927e99c5.chunk.js.map": "/MakeItEasy-UI/static/js/453.927e99c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fa20c2d7.css",
-    "static/js/main.bcaa3675.js"
+    "static/js/main.37dcd82f.js"
   ]
 }
