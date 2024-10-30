@@ -9,6 +9,7 @@ import TicketPage from "./components/CustomerService/share/ticket";
 import MakeOrderPage from "./components/CustomerService/share/makeOrder";
 import TrackOrderPage from "./components/CustomerService/share/trackOrder";
 import OrderHistoryPage from "./components/CustomerService/share/orderHistory";
+import SellerLogin from './components/SellerLogin/SellerLogin';
 import CustomerLogin from "./components/CustomerService/Login/login"
 import RegisterCustomer from './components/CustomerService/Login/registerCustomer'
 import SellerService from './components/SellerService/sellerService';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/CustomerLogin" element={<CustomerLogin />} />
         <Route path="/RegisterCustomer" element={<RegisterCustomer />}/>
         {/* Seller Service Page and Subpages */}
+        <Route path="/SellerLogin" element={<SellerLogin />} />
         <Route path="/SellerService" element={<SellerService />} />
         <Route path="/SellerOrders" element={<SellerOrders />} />
         <Route path="/SellerProduct" element={<SellerManageProduct />} />

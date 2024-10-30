@@ -11,7 +11,7 @@ const Navbar = () => {
         <h2>Welcome, Seller</h2> {/* The header on the left */}
       </div>
       <div className="navbar-right">
-        <Link to="/profile" className="navbar-link">Profile</Link> {/* The Profile link on the right */}
+        <Link to="/SellerProfile" className="navbar-link">Profile</Link> {/* The Profile link on the right */}
       </div>
     </nav>
   );

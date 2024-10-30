@@ -1,30 +1,31 @@
-// src/components/LandingPage.js
+// src/components/LandingPage/Landing.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Landing.css';
 
+const LandingPage = () => {
+  const navigate = useNavigate();
 
-function Header() {
-  return (
+  const handleSellerLogin = () => {
+    navigate('/SellerLogin');
+  };
+
+  const Header = () => (
     <header className="header">
       <div className="logo">Welcome! Please Log In First.</div>
     </header>
   );
-}
 
-function Footer() {
-  return <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>;
-}
-
-const LandingPage = () => {
-  const navigate = useNavigate();
+  const Footer = () => (
+    <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>
+  );
 
   return (
     <div className="landing-page">
       <Header />
       <div>
-      <button className="btn" onClick={() => navigate('/SellerService')}>
-      Log In as Seller
+        <button onClick={handleSellerLogin}className="btn">
+          Log In as Seller
         </button>
         <button className="btn" onClick={() => navigate('/CustomerLogin')}>
       Log In as Customer
