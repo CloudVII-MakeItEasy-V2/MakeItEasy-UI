@@ -14,7 +14,7 @@ const Login = () => {
     setIsLoading(true);
     const userData = { email, password };
     try {
-      const response = await axios.post('http://localhost:8080/customer/login', userData, {
+      const response = await axios.post('https://makeiteasy-440104.ue.r.appspot.com/customer/login', userData, {
         headers: { 'Content-Type': 'application/json' }
       });
       if (response.data.state) {

@@ -30,7 +30,7 @@ const Register = () => {
         }
     
         try {
-            const response = await axios.post('http://localhost:8080/customer', JSON.stringify(userData), {
+            const response = await axios.post('https://makeiteasy-440104.ue.r.appspot.com/customer', JSON.stringify(userData), {
                 headers: {
                     'Content-Type': 'application/json'
                 }

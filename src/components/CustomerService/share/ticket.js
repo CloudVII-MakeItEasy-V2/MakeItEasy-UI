@@ -17,11 +17,12 @@ function TicketPage() {
       return;
     }
     try {
-      const response = await axios.put(`http://localhost:8080/customer/${customerId}/support_tickets/${ticketId}`, {
+      const response = await axios.put(`https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}/support_tickets/${ticketId}`, {
         issue,
         status
       });
       setMessage(response.data.message);
+      console.log(status);
       setError('');
       console.log(response.data);
       alert(response.data.message); // Alert for successful update

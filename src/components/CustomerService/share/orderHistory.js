@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./orderHistory.css";
 
-// Base URL for the order service, update with your actual environment's URL
-const ORDER_SERVICE_URL = "http://localhost:8080";
-
-// Function to call API to get this customer's orders
-const fetchOrderHistory = async (customerId, status = '', page = 1, per_page = 10) => {
-  try {
-    const url = `${ORDER_SERVICE_URL}/customer/${customerId}/orders?` +
-                `${status && `status=${status}&`}page=${page}&per_page=${per_page}`;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Network response was not ok.');
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching order history:', error);
-    throw error;
-  }
+const COMPOSITE_SERVICE_URL = "https://makeiteasy-440104.ue.r.appspot.com";
+const fetchOrderHistory = async (customerId, page = 1, per_page = 10) => {
+  const url = `${COMPOSITE_SERVICE_URL}/customer/${customerId}/orders?page=${page}&per_page=${per_page}`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('Network response was not ok.');
+  return await response.json();
 };
 
 function OrderHistoryPage() {
@@ -23,9 +14,7 @@ function OrderHistoryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
-  // Hard-coded data for temporary use
-  const customerId = "1";
-  const status = 'Pending'; // Add status if needed
+  const customerId = 2; // Assuming a hardcoded customer ID for demonstration
   const page = 1;
   const per_page = 10;
 
@@ -33,18 +22,17 @@ function OrderHistoryPage() {
     const loadOrderHistory = async () => {
       try {
         setLoading(true);
-        const fetchedOrders = await fetchOrderHistory(customerId, status, page, per_page);
-        // Present order from the most recent to the oldest
-        const sortedOrders = fetchedOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setOrders(sortedOrders);
+        const fetchedOrders = await fetchOrderHistory(customerId, page, per_page);
+        setOrders(fetchedOrders);
       } catch (err) {
         setError("Failed to load order history.");
+        console.error(err);
       } finally {
         setLoading(false);
       }
     };
     loadOrderHistory();
-  }, [customerId, status, page, per_page]);
+  }, [customerId, page, per_page]);
 
   if (loading) {
     return <p>Loading order history...</p>;
@@ -64,17 +52,14 @@ function OrderHistoryPage() {
       ) : (
         <ul className="order-list">
           {orders.map((order) => (
-            <li key={order.id} className="order-item">
-              <div className="order-header">
-                <span>Order ID: {order.id}</span>
-                <span>Date: {new Date(order.date).toLocaleDateString()}</span>
-              </div>
-              <div className="order-details">
-                <p>Total: ${order.total}</p>
-                <p>Status: {order.status}</p>
-              </div>
-            </li>
-          ))}
+  <li key={order.order_id} className="order-item">
+    <div className="order-details">
+      <p>Order ID: {order.order_id}</p>
+      <p>Total: ${Number(order.total_amount).toFixed(2)}</p> {/* Updated this line */}
+      <p>Tracking Number: {order.tracking_number || 'N/A'}</p>
+    </div>
+  </li>
+))}
         </ul>
       )}
     </div>

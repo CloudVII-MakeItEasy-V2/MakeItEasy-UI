@@ -4,7 +4,7 @@ import "./profile.css";
 
 const fetchCustomerProfile = async (customerId) => {
   try {
-    const response = await axios.get(`http://localhost:8080/customer/${customerId}`);
+    const response = await axios.get(`https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}`);
     console.log(response.data);
     return response.data;
   } catch (error) {
