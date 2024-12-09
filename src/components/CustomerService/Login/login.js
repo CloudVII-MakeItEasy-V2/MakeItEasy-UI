@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-//const API_GATEWAY_URL = 'http://127.0.0.1:8080/customer/login';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,15 +15,16 @@ const Login = () => {
   );
 
   const Footer = () => (
-    <footer className="footer">
-      © 2024 MakeItEasy. All rights reserved.
-    </footer>
+    <footer className="footer">© 2024 MakeItEasy. All rights reserved.</footer>
   );
 
   const handleLogin = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+
     const userData = { email, password };
+    console.log('Payload being sent:', userData); // Debugging payload
+
     try {
       const response = await axios.post(
         'https://makeiteasy-440104.ue.r.appspot.com/customer/login',
@@ -33,8 +33,12 @@ const Login = () => {
           headers: { 'Content-Type': 'application/json' },
         }
       );
+
+      console.log('Full response:', response.data); // Debugging response
+
       if (response.data.state) {
         console.log('Login successful:', response.data);
+
         // Extract customer_id from the profile link
         const profileLink = response.data.links.find(
           (link) => link.rel === 'profile'
@@ -47,11 +51,15 @@ const Login = () => {
         // Navigate to Customer Service page
         navigate('/CustomerService');
       } else {
+        // Handle known login failure
         alert('Login failed: ' + response.data.message);
       }
     } catch (error) {
-      console.error('Login error:', error);
-      alert('Login failed: ' + (error.response?.data?.message || 'Unknown error'));
+      console.error('Full error response:', error.response); // Debug full error
+      alert(
+        'Login failed: ' +
+          (error.response?.data?.message || 'Unknown error. Please try again.')
+      );
     } finally {
       setIsLoading(false);
     }
