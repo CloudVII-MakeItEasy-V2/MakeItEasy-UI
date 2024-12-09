@@ -26,6 +26,7 @@ const Login = () => {
     console.log('Payload being sent:', userData); // Debugging payload
 
     try {
+      // Send POST request to login endpoint
       const response = await axios.post(
         'https://makeiteasy-440104.ue.r.appspot.com/customer/login',
         userData,
@@ -33,27 +34,8 @@ const Login = () => {
           headers: { 'Content-Type': 'application/json' },
         }
       );
-
-      console.log('Full response:', response.data); // Debugging response
-
-      if (response.data.state) {
-        console.log('Login successful:', response.data);
-
-        // Extract customer_id from the profile link
-        const profileLink = response.data.links.find(
-          (link) => link.rel === 'profile'
-        ).href;
-        const customerId = profileLink.split('/').pop(); // Assuming URL is in format /customer/{customer_id}
-
-        // Store customer_id in local storage or state
-        localStorage.setItem('customerId', customerId); // Using local storage for simplicity
-
-        // Navigate to Customer Service page
-        navigate('/CustomerService');
-      } else {
-        // Handle known login failure
-        alert('Login failed: ' + response.data.message);
-      }
+      console.log('Login successful:', response.data);
+      navigate('/CustomerService');
     } catch (error) {
       console.error('Full error response:', error.response); // Debug full error
       alert(
