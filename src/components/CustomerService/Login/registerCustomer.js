@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './registerCustomer.css'; 
-
-const API_GATEWAY_URL = process.env.API_GATEWAY_URL;
 //const API_GATEWAY_URL = 'http://127.0.0.1:8080/customer/register';
 
 const Register = () => {
@@ -56,11 +54,10 @@ const Register = () => {
         };
 
         console.log('Sending data:', userData);
-
         setLoading(true); // Show loading state
         try {
             const response = await axios.post(
-                API_GATEWAY_URL,
+                'https://makeiteasy-440104.ue.r.appspot.com/customer/register', 
                 JSON.stringify(userData),
                 {
                     headers: {

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import './login.css';
-const API_GATEWAY_URL = process.env.API_GATEWAY_URL;
+
 //const API_GATEWAY_URL = 'http://127.0.0.1:8080/customer/login';
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +27,7 @@ const Login = () => {
     const userData = { email, password };
     try {
       const response = await axios.post(
-        API_GATEWAY_URL,
+        'https://makeiteasy-440104.ue.r.appspot.com/customer/login',
         userData,
         {
           headers: { 'Content-Type': 'application/json' },
