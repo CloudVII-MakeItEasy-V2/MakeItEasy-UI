@@ -1,4 +1,3 @@
-// src/components/LandingPage/Landing.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Landing.css';
@@ -17,22 +16,26 @@ const LandingPage = () => {
   );
 
   const Footer = () => (
-    <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>
+    <footer className="footer">
+      © 2024 MakeItEasy. All rights reserved.
+    </footer>
   );
 
   return (
-    <div className="landing-page">
+    <>
       <Header />
-      <div>
-        <button onClick={handleSellerLogin}className="btn">
-          Log In as Seller
-        </button>
-        <button className="btn" onClick={() => navigate('/CustomerLogin')}>
-      Log In as Customer
-        </button>
+      <div className="landing-container">
+        <main className="main-content">
+          <button onClick={handleSellerLogin} className="btn">
+            Log In as Seller
+          </button>
+          <button className="btn" onClick={() => navigate('/CustomerLogin')}>
+            Log In as Customer
+          </button>
+        </main>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

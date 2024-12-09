@@ -1,15 +1,65 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E3C6C2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AC7B77;
+    color: #fff;
+    padding: 15px 30px;
+    position: fixed; /* Fix header at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure header stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #2c0402;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed; /* Fix footer at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Register container styles */
 .register-container {
     width: 100%;
     max-width: 500px;
-    margin: 20px auto;
+    margin: 120px auto; /* Add spacing for the fixed header */
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     background-color: #FFFFFF;
     border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+/* Form group styles */
 .form-group {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 label {
@@ -30,6 +80,7 @@ input[type="tel"] {
     box-sizing: border-box;
 }
 
+/* Button styles */
 button {
     width: 100%;
     padding: 10px;
@@ -43,5 +94,26 @@ button {
 }
 
 button:hover {
-    background-color: #BEA1A1;
+    background-color: #A17977;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header {
+        font-size: 1.2rem; /* Reduce font size for smaller screens */
+        padding: 10px;
+    }
+
+    .footer {
+        font-size: 0.8rem; /* Adjust footer size for smaller screens */
+    }
+
+    .register-container {
+        margin: 140px 20px; /* Add spacing for header and footer */
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px; /* Adjust button font size */
+    }
 }

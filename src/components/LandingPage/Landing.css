@@ -1,3 +1,4 @@
+/* Reset and global styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,57 +8,101 @@
 body, html {
   height: 100%;
   font-family: Arial, sans-serif;
-  padding-top: 80px;
+  background-color: #f5f5f5; /* Neutral background for better contrast */
+  overflow: hidden; /* Prevent scrolling */
 }
+
+/* Header styles */
 .header {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #AC7B77;
   color: #fff;
-  padding: 20px; /* Add some padding for spacing */
-  position: fixed; /* Fix the header at the top */
-  top: 0; /* Align at the very top */
-  left: 0; /* Ensure it spans the entire width */
-  z-index: 1000; /* Ensure the header stays above other content */
-}
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.landing-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #E3C6C2;
+  padding: 15px 30px; /* Balanced padding for spacing */
+  position: fixed; /* Fix header at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure header stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Landing container styles */
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack buttons vertically */
+  height: calc(100vh - 120px); /* Full height minus header and footer (60px each) */
+  background-color: #E3C6C2;
+  text-align: center;
+  padding: 0 20px; /* Add horizontal padding for responsiveness */
+  box-sizing: border-box;
+}
+
+/* Main content styles (buttons) */
 .btn {
-  width: 200px;
+  width: 220px;
   height: 60px;
-  padding: 0; 
-  margin: 0 20px;
-  font-size: 20px;
+  margin: 15px 20px; /* Add spacing between buttons */
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold;
   background-color: #C79090;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease-in-out; /* Smooth hover animation */
 }
 
 .btn:hover {
-  background-color: #a56969;
+  background-color: #a56969; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Add hover scaling effect */
 }
-.footerStyle {
-  background-color: #2c0402; 
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px #AC7B77; /* Focused button outline */
+}
+
+/* Footer styles */
+.footer {
+  background-color: #2c0402;
   color: white;
   text-align: center;
-  padding: 1rem; 
-  position: fixed; 
-  width: 100%; 
-  bottom: 0;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0; /* Fix footer to the bottom */
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .btn {
+    width: 90%; /* Buttons take up more space on smaller screens */
+    height: 50px;
+    font-size: 1rem;
+    margin: 10px 0; /* Reduce spacing */
+  }
+
+  .footer {
+    font-size: 0.8rem; /* Adjust footer size for smaller screens */
+  }
+
+  .header {
+    flex-direction: column; /* Stack header content if necessary */
+    padding: 10px 20px;
+    font-size: 1.2rem; /* Adjust font size for mobile */
+  }
 }
