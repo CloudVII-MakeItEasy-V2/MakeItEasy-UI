@@ -55,12 +55,12 @@ function ProfilePage() {
   const [error, setError] = useState(null); // Holds any error messages
 
   useEffect(() => {
-    // Retrieve customer ID from session storage
-    const customerId = sessionStorage.getItem("customerId");
+    // Retrieve customer ID from local storage
+    const customerId = localStorage.getItem("customerId");
 
     // If no customer ID is found, set an error
     if (!customerId) {
-      setError("No customer ID found in session storage. Please log in again.");
+      setError("No customer ID found in local storage. Please log in again.");
       setLoading(false);
       return;
     }

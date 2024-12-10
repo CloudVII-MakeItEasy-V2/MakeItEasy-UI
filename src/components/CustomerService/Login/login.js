@@ -21,12 +21,12 @@ const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-
+  
     const userData = { email, password };
     console.log('Payload being sent:', userData); // Debugging payload
-
+  
     try {
-      // Send POST request to login endpoint
+      // Send POST request to the login endpoint
       const response = await axios.post(
         'http://127.0.0.1:8080/customer/login',
         userData,
@@ -34,7 +34,23 @@ const Login = () => {
           headers: { 'Content-Type': 'application/json' },
         }
       );
+  
       console.log('Login successful:', response.data);
+  
+      // Extract data and headers
+      const customerId = response.data.customer.customerId; // Assuming the response contains customerId in the "customer" object
+      const authToken = response.headers['authorization']; // Remove "Bearer " prefix
+      const grants = response.headers['x-grants']?.split(','); // Split grants into an array
+  
+      // Store the extracted values in localStorage
+      if (customerId) localStorage.setItem('customerId', customerId);
+      if (authToken) localStorage.setItem('authToken', authToken);
+      if (grants) localStorage.setItem('grants', JSON.stringify(grants));
+      console.log(authToken);
+      console.log(grants);
+      console.log(customerId);
+  
+      // Navigate to the Customer Service page
       navigate('/CustomerService');
     } catch (error) {
       console.error('Full error response:', error.response); // Debug full error
