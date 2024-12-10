@@ -3,291 +3,159 @@ import "./makeOrder.css";
 import SearchBox from "./searchBox";
 import CartBar from "./cartBar";
 import RecommendationList from "./recommendationList";
-class OrderItem {
-  constructor(productId, quantity, price, orderId = null) {
-    // orderId is optional, this is because when the item is only in cart but not in an order, it may not have orderId
-    this.orderId = orderId;
-    this.productId = productId;
-    this.quantity = quantity;
-    this.price = price;
-  }
 
-  calculateTotal() {
-    return this.quantity * this.price;
-  }
-}
-class Order {
-  constructor(customerId, orderItems, totalAmount) {
-    this.orderId = this.generateUniqueId();
-    this.customerId = customerId;
-    this.orderItems = orderItems;
-    this.totalAmount = totalAmount || this.calculateTotalAmount();
-    // when an order is just created, the status is pending, waiting to be accepted by the seller
-    this.status = "Pending";
-    this.createdDate = new Date();
-    // tracking number will be obtained when the order has been shipped
-    this.trackingNumber = null;
-  }
-
-  generateUniqueId() {
-    // generate ID randomly
-    return Math.floor(Math.random() * 1000000);
-  }
-
-  calculateTotalAmount() {
-    return this.orderItems.reduce((total, item) => total + item.calculateTotal(), 0);
-  }
-
-  updateOrderStatus(newStatus) {
-    if (["Pending", "Processing", "Shipped", "Delivered", "Closed", "Cancelled"].includes(newStatus)) {
-      this.status = newStatus;
-    } else {
-      throw new Error("Invalid status");
-    }
-  }
-
-  getOrderDetails() {
-    return {
-      orderId: this.orderId,
-      customerId: this.customerId,
-      orderItems: this.orderItems,
-      totalAmount: this.totalAmount,
-      status: this.status,
-      createdDate: this.createdDate,
-      trackingNumber: this.trackingNumber,
-    };
-  }
-
-  trackOrder() {
-    if (this.trackingNumber) {
-      return `Tracking number: ${this.trackingNumber}`;
-    } else {
-      return "Order not shipped yet.";
-    }
-  }
-
-  cancelOrder() {
-    if (this.status === "Pending") {
-      this.status = "Cancelled";
-    } else {
-      throw new Error("Cannot cancel an order that is already processed.");
-    }
-  }
-}
-class Payment {
-  constructor(orderId, paymentMethod, amount) {
-    this.paymentId = this.generateUniqueId();
-    this.orderId = orderId;
-    this.paymentMethod = paymentMethod;
-    this.amount = amount;
-    this.status = "Pending";
-    this.transactionId = null;
-  }
-
-  generateUniqueId() {
-    return Math.floor(Math.random() * 1000000);
-  }
-
-  processPayment() {
-    this.transactionId = `TXN-${Math.floor(Math.random() * 1000000)}`;
-    this.status = "Completed";
-    console.log(`Payment of ${this.amount} processed using ${this.paymentMethod}`);
-  }
-
-  getPaymentStatus() {
-    return {
-      paymentId: this.paymentId,
-      orderId: this.orderId,
-      status: this.status,
-      transactionId: this.transactionId,
-    };
-  }
-
-  refundPayment() {
-    if (this.status === "Completed") {
-      this.status = "Refunded";
-      console.log(`Payment refunded. Transaction ID: ${this.transactionId}`);
-    } else {
-      throw new Error("Cannot refund a non-completed payment.");
-    }
-  }
-}
-class Cart {
-  constructor(customerId) {
-    this.customerId = customerId;
-    this.items = [];
-    this.totalPrice = 0;
-  }
-
-  addItem(productId, quantity, price) {
-    const existingItem = this.items.find(item => item.productId === productId);
-    if (existingItem) {
-      existingItem.quantity += quantity;  // Increment quantity if item already exists
-    } else {
-      const newItem = new OrderItem(productId, quantity, price);
-      this.items.push(newItem);
-    }
-    // update total price
-    this.calculateTotalPrice();
-  }
-
-  removeItem(productId) {
-    this.items = this.items.filter(item => item.productId !== productId);
-    this.calculateTotal();
-  }
-
-  calculateTotalPrice() {
-    this.totalPrice = this.items.reduce((total, item) => {
-      return total + item.calculateTotal();
-    }, 0); 
-  }
-
-  checkout() {
-    if (this.items.length === 0) {
-      throw new Error("Cart is empty");
-    }
-
-    // Create an order from the cart items
-    const order = new Order(this.customerId, this.items, this.totalPrice);
-    return order;
-  }
-}
-class OrderService {
-  constructor() {
-    this.orders = [];
-    this.payments = [];
-  }
-
-  createOrder(customer, orderItems) {
-    const totalAmount = orderItems.reduce((total, item) => total + item.calculateTotal(), 0);
-    const newOrder = new Order(customer, orderItems, totalAmount);
-    this.orders.push(newOrder);
-    return newOrder;
-  }
-
-  updateOrderStatus(orderId, newStatus) {
-    const order = this.orders.find(order => order.orderId === orderId);
-    if (!order) throw new Error("Order not found");
-    order.updateOrderStatus(newStatus);
-  }
-
-  getOrderDetails(orderId) {
-    const order = this.orders.find(order => order.orderId === orderId);
-    if (!order) throw new Error("Order not found");
-    return order.getOrderDetails();
-  }
-
-  trackOrder(orderId) {
-    const order = this.orders.find(order => order.orderId === orderId);
-    if (!order) throw new Error("Order not found");
-    return order.trackOrder();
-  }
-
-  cancelOrder(orderId) {
-    const order = this.orders.find(order => order.orderId === orderId);
-    if (!order) throw new Error("Order not found");
-    order.cancelOrder();
-  }
-
-  processPayment(orderId, paymentMethod) {
-    const order = this.orders.find(order => order.orderId === orderId);
-    if (!order) throw new Error("Order not found");
-
-    const payment = new Payment(orderId, paymentMethod, order.totalAmount);
-    payment.processPayment();
-    this.payments.push(payment);
-    return payment;
-  }
-
-  getPaymentStatus(paymentId) {
-    const payment = this.payments.find(payment => payment.paymentId === paymentId);
-    if (!payment) throw new Error("Payment not found");
-    return payment.getPaymentStatus();
-  }
-
-  refundPayment(paymentId) {
-    const payment = this.payments.find(payment => payment.paymentId === paymentId);
-    if (!payment) throw new Error("Payment not found");
-    payment.refundPayment();
-  }
-}
-// hard-coded data for temporary use
 const products = [
-  { id: 1, name: "Item 1", price: 10 },
-  { id: 2, name: "Item 2", price: 15 },
-  { id: 3, name: "Item 3", price: 20 },
-  { id: 4, name: "Item 4", price: 25 },
-  { id: 5, name: "Item 5", price: 30 },
-  { id: 6, name: "Rec 1", price: 10 },
-  { id: 7, name: "Rec 2", price: 15 },
-  { id: 8, name: "Rec 3", price: 20 },
-  { id: 9, name: "Rec 4", price: 25 },
-  { id: 10, name: "Rec 5", price: 30 },
+  { id: 1, name: "Wireless Mouse", price: 25.0, stock: 130 },
+  { id: 2, name: "Bluetooth Keyboard", price: 45.0, stock: 100 },
+  { id: 3, name: "Smartphone Case", price: 15.99, stock: 200 },
+  { id: 4, name: "Laptop Sleeve", price: 29.99, stock: 75 },
+  { id: 5, name: "Gaming Headset", price: 89.99, stock: 50 },
+  { id: 6, name: "USB-C Charger", price: 20.0, stock: 300 },
+  { id: 7, name: "Graphic T-Shirt", price: 18.0, stock: 250 },
+  { id: 8, name: "Hoodie", price: 35.0, stock: 150 },
+  { id: 9, name: "Yoga Mat", price: 25.99, stock: 120 },
+  { id: 10, name: "Dumbbell Set", price: 75.0, stock: 80 },
+  { id: 11, name: "Coffee Mug", price: 10.99, stock: 500 },
+  { id: 12, name: "Blender", price: 49.99, stock: 60 },
+  { id: 13, name: "Notebook", price: 5.99, stock: 300 },
+  { id: 14, name: "Ballpoint Pens", price: 12.99, stock: 250 },
+  { id: 15, name: "Fiction Novel", price: 12.0, stock: 200 },
+  { id: 16, name: "Cookbook", price: 25.0, stock: 150 },
+  { id: 17, name: "LED Desk Lamp", price: 30.0, stock: 90 },
+  { id: 18, name: "Office Chair", price: 120.0, stock: 40 },
+  { id: 19, name: "Sunscreen", price: 8.99, stock: 300 },
+  { id: 20, name: "Shampoo", price: 12.99, stock: 250 },
 ];
-const recommendations = [
-  { id: 6, name: "Rec 1", price: 10 },
-  { id: 7, name: "Rec 2", price: 15 },
-  { id: 8, name: "Rec 3", price: 20 },
-  { id: 9, name: "Rec 4", price: 25 },
-  { id: 10, name: "Rec 5", price: 30 },
-];
+
+const recommendations = products.slice(0, 5);
+
+// Header Component
+const Header = () => (
+  <header className="header">
+    <div className="logo">Welcome to the Make Order Page</div>
+  </header>
+);
+
+// Footer Component
+const Footer = () => (
+  <footer className="footer">© 2024 MakeItEasy. All rights reserved.</footer>
+);
+
 function MakeOrderPage() {
   const [recommendedItems, setRecommendedItems] = useState([]);
-  const [searchResults, setSearchresults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     setRecommendedItems(recommendations);
   }, []);
-  const [cart] = useState(new Cart(1234567));  // Only initialize Cart once
-  const orderService = new OrderService();
 
-  // Use the products array for searching items
   const handleSearch = (searchTerm) => {
     if (!searchTerm) {
-      setSearchresults([]);
+      setSearchResults([]);
       return;
     }
 
     const filteredItems = products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setSearchresults(filteredItems);
+    setSearchResults(filteredItems);
   };
 
-  // Handle adding items to the cart
   const handleAddToCart = (item) => {
-    // Add the item to the cart and recalculate the total price
-    cart.addItem(item.id, 1, item.price); // Add to the cart (default quantity 1)
-    setCartItems([...cartItems, item]);   // Update the state with the new cart items
-    setTotalPrice(cart.totalPrice);       // Update the state with the new total price
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    const currentQuantity = existingItem ? existingItem.quantity : 0;
+
+    if (currentQuantity + 1 > item.stock) {
+      alert(`Cannot add more of ${item.name}. Stock limit reached!`);
+      return;
+    }
+
+    setCartItems((prevCart) =>
+      existingItem
+        ? prevCart.map((cartItem) =>
+            cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              : cartItem
+          )
+        : [...prevCart, { ...item, quantity: currentQuantity + 1 }]
+    );
+    setTotalPrice((prevTotal) => prevTotal + item.price);
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (cartItems.length === 0) {
       alert("Cart is empty! Add some items before checkout.");
       return;
     }
-    // Use orderService to create an order from the cart
-    const order = orderService.createOrder(cart.customerId, cart.items);
-    console.log("Order created:", order);
-    alert("Order created successfully!");
-  };
-  return (
-    <div className="makeOrder-container">
-      <h1>Make an Order</h1>
-      <SearchBox onSearch={handleSearch} />
-      {searchResults.length > 0 ? (
-        <RecommendationList items={searchResults} onAddToCart={handleAddToCart} />
-      ) : (
-        <RecommendationList items={recommendedItems} onAddToCart={handleAddToCart} />
-      )}
-      {/* Cart Display */}
-      <CartBar cartItems={cartItems} totalPrice={totalPrice} />
 
-      {/* Checkout Button */}
-      <button onClick={handleCheckout}>Checkout</button>
-    </div>
+    const customerId = localStorage.getItem("customerId");
+    const token = localStorage.getItem("authToken");
+    const grants = localStorage.getItem("grants");
+
+    if (!customerId || !token || !grants.includes("create_order")) {
+      alert("Missing required data or insufficient permissions. Please log in again.");
+      return;
+    }
+
+    const orderData = {
+      customer_id: parseInt(customerId),
+      status: "Pending",
+      tracking_number: "",
+      items: cartItems.map((item) => ({
+        product_id: item.id,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+    };
+
+    try {
+      const response = await fetch(`http://127.0.0.1:8080/customer/${customerId}/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `${token}`,
+          "X-Grants": `${grants}`,
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Order created successfully:", data);
+        alert(`Order created successfully! Order ID: ${data.order_id}`);
+        setCartItems([]); // Clear the cart after successful checkout
+        setTotalPrice(0); // Reset the total price
+      } else {
+        const errorDetails = await response.json();
+        console.error("Order creation failed:", errorDetails);
+        alert(`Order creation failed: ${errorDetails.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+      alert("An error occurred while creating the order. Please try again.");
+    }
+  };
+
+  return (
+    <>
+      <Header />
+      <div className="makeOrder-container">
+        <h1>Make an Order</h1>
+        <SearchBox onSearch={handleSearch} />
+        <RecommendationList
+          items={searchResults.length > 0 ? searchResults : recommendedItems}
+          onAddToCart={handleAddToCart}
+        />
+        <CartBar cartItems={cartItems} totalPrice={totalPrice} />
+        <button className="checkout-button" onClick={handleCheckout}>
+          Checkout
+        </button>
+      </div>
+      <Footer />
+    </>
   );
 }
+
 export default MakeOrderPage;

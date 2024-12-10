@@ -1,69 +1,160 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./profile.css";
 
+// Reuse Header from the Login component
+const Header = () => (
+  <header className="header">
+    <div className="logo">Welcome to Your Profile Page!</div>
+  </header>
+);
+
+// Reuse Footer from the Login component
+const Footer = () => (
+  <footer className="footer">© 2024 MakeItEasy. All rights reserved.</footer>
+);
+
+// Function to fetch customer profile from the API Gateway
 const fetchCustomerProfile = async (customerId) => {
   try {
-    const response = await axios.get(`https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}`);
-    console.log(response.data);
+    const token = localStorage.getItem("authToken");
+    const grants = localStorage.getItem("grants");
+
+    if (!token || !grants) {
+      throw new Error("Authentication token or grants are missing. Please log in again.");
+    }
+
+    const headers = {
+      Authorization: `${token}`,
+      "X-Grants": grants,
+      "Content-Type": "application/json",
+    };
+
+    console.log("Request Headers:", headers);
+
+    const response = await axios.get(`http://127.0.0.1:8080/customer/${customerId}`, { headers });
+
+    console.log("Customer Profile:", response.data);
     return response.data;
   } catch (error) {
+    console.error("Error fetching customer profile:", error);
+
+    // Provide more detailed error messages
+    if (error.response) {
+      console.error("Server Response:", error.response.data);
+      throw new Error(error.response.data.error || "Failed to fetch customer profile.");
+    }
+
     throw error;
   }
 };
 
 function ProfilePage() {
-  const [customer, setCustomer] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [customer, setCustomer] = useState(null); // Holds the customer data
+  const [loading, setLoading] = useState(true); // Indicates loading state
+  const [error, setError] = useState(null); // Holds any error messages
 
   useEffect(() => {
-    const customerId = localStorage.getItem('customerId'); // Retrieve customer ID from local storage
+    // Retrieve customer ID from session storage
+    const customerId = sessionStorage.getItem("customerId");
+
+    // If no customer ID is found, set an error
     if (!customerId) {
-      setError("No customer ID found.");
+      setError("No customer ID found in session storage. Please log in again.");
       setLoading(false);
       return;
     }
 
     const loadCustomerProfile = async () => {
       try {
-        setLoading(true);
-        const customerData = await fetchCustomerProfile(customerId);
-        setCustomer(customerData);
+        setLoading(true); // Start loading
+        const customerData = await fetchCustomerProfile(customerId); // Fetch customer data
+        setCustomer(customerData); // Set customer data in state
       } catch (err) {
-        setError("Failed to load customer profile.");
+        // Handle errors, including token issues or server problems
+        if (err.response && err.response.status === 401) {
+          setError("Unauthorized request. Please log in again.");
+        } else {
+          setError(
+            err.message || "Failed to load customer profile. Please try again later."
+          );
+        }
       } finally {
-        setLoading(false);
+        setLoading(false); // Stop loading
       }
     };
 
-    loadCustomerProfile();
+    loadCustomerProfile(); // Load the customer profile when the component mounts
   }, []);
 
+  // Render the loading state
   if (loading) {
-    return <p>Loading customer profile...</p>;
+    return (
+      <>
+        <Header />
+        <div className="profile-container">
+          <p>Loading customer profile...</p>
+        </div>
+        <Footer />
+      </>
+    );
   }
 
+  // Render the error state
   if (error) {
-    return <p className="error">{error}</p>;
+    return (
+      <>
+        <Header />
+        <div className="profile-container">
+          <p className="error">{error}</p>
+        </div>
+        <Footer />
+      </>
+    );
   }
 
+  // Render when no customer data is available
   if (!customer) {
-    return <p>No customer data available.</p>;
+    return (
+      <>
+        <Header />
+        <div className="profile-container">
+          <p>No customer data available.</p>
+        </div>
+        <Footer />
+      </>
+    );
   }
 
+  // Render the profile page with customer details
   return (
-    <div className="profile-container">
-      <h1>Customer Profile</h1>
-      <div className="profile-details">
-        <p><strong>Customer ID:</strong> {customer.customer_id}</p>
-        <p><strong>Name:</strong> {customer.name}</p>
-        <p><strong>Email:</strong> {customer.email}</p>
-        <p><strong>Address:</strong> {customer.address}</p>
-        <p><strong>Phone:</strong> {customer.phone}</p>
+    <>
+      <Header />
+      <div className="profile-container">
+        <h1>Customer Profile</h1>
+        <div className="profile-details">
+          <p>
+            <strong>Customer ID:</strong> {customer.customerId}
+          </p>
+          <p>
+            <strong>Name:</strong> {customer.name}
+          </p>
+          <p>
+            <strong>Email:</strong> {customer.email}
+          </p>
+          <p>
+            <strong>Address:</strong> {customer.address}
+          </p>
+          <p>
+            <strong>Phone:</strong> {customer.phone}
+          </p>
+          <p>
+            <strong>Balance:</strong> ${customer.balance}
+          </p>
+        </div>
       </div>
-      {/* Further implementation details */}
-    </div>
+      <Footer />
+    </>
   );
 }
 

@@ -1,18 +1,206 @@
-.makeOrder-container {
-  display: flex;                  /* Enable Flexbox */
-  justify-content: flex-start;     /* Align content to the top vertically */
-  align-items: center;             /* Center the content horizontally */
-  flex-direction: column;          /* Stack items vertically */
-  background-color: #E3C6C2;
-  padding: 0 20px 20px;            /* Remove top padding, keep padding on right, bottom, and left */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 100vh;                   /* Full viewport height */
+/* Global styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.h1 {
-  text-align: center;              /* Center the text horizontally */
+/* Header styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Set a fixed height for the header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #AC7B77;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Footer styles */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Set a fixed height for the footer */
+  background-color: #2c0402;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content container */
+.makeOrder-container {
+  flex: 1; /* Makes the container take up remaining space */
+  width: 100%;
+  max-width: 600px;
+  margin: 80px auto 80px; /* Add margins for the fixed header and footer */
+  padding: 20px;
+  background-color: #A17977;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Title styles */
+.makeOrder-container h1 {
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+/* Button styles */
+button {
+  width: 120px;
+  padding: 8px;
+  font-size: 14px;
+  background-color: #BEA1A1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px auto 0;
+  transition: background-color 0.3s, transform 0.1s;
+  display: block;
+}
+
+button:hover {
+  background-color: #A17977;
+  transform: scale(1.02);
+}
+
+/* Recommendation list styles */
+.recommendation-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.recommendation-item .add-to-cart-button {
+  width: 80px;
+  padding: 8px;
+  font-size: 12px;
+  background-color: #BEA1A1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px auto 0;
+  transition: background-color 0.3s, transform 0.1s;
+  display: block;
+}
+
+.recommendation-item .add-to-cart-button:hover {
+  background-color: #A17977;
+  transform: scale(1.02);
+}
+
+.recommendation-item h3 {
+  font-size: 1.2rem;
   color: #333;
-  margin-top: 0;                   /* Ensure no default margin at the top */
+  margin-top: 0;
+}
+
+.recommendation-item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* SearchBox styles */
+.search-box {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* CartBar styles */
+.cart-bar {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.cart-bar h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.cart-bar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-bar li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.cart-bar .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    font-size: 1.2rem;
+    padding: 10px;
+    height: 50px; /* Adjust header height for smaller screens */
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    height: 50px; /* Adjust footer height for smaller screens */
+  }
+
+  .makeOrder-container {
+    margin: 70px 20px 70px; /* Adjust margin for smaller screens */
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    width: 100px;
+  }
+
+  .recommendation-item {
+    width: 100%; /* Make items full-width on smaller screens */
+  }
 }

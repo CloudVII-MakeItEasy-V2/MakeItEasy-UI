@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './registerCustomer.css'; 
-//const API_GATEWAY_URL = 'http://127.0.0.1:8080/customer/register';
+import './registerCustomer.css';
 
 const Register = () => {
     // State for each input field
@@ -57,7 +56,7 @@ const Register = () => {
         setLoading(true); // Show loading state
         try {
             const response = await axios.post(
-                'https://makeiteasy-440104.ue.r.appspot.com/customer/register', 
+                'http://127.0.0.1:8080/customer/register',
                 JSON.stringify(userData),
                 {
                     headers: {
@@ -65,10 +64,23 @@ const Register = () => {
                     },
                 }
             );
+
             console.log('Registration successful:', response.data);
 
-            // Redirect to the Customer Service page (or any desired page)
-            navigate('/CustomerService'); // Replace '/customer-service' with your desired route
+            // Extract customerId from the response
+            const customerId = response.data.customer.customerId; // Assuming "customerId" is included in the response
+            if (customerId) {
+                console.log('Customer ID retrieved:', customerId);
+
+                // Store customerId in session storage (or local storage as needed)
+                sessionStorage.setItem('customerId', customerId);
+
+                // Redirect to the Customer Service page (or any desired page)
+                navigate('/CustomerService');
+            } else {
+                console.error('Customer ID not found in the response.');
+                alert('Registration successful, but customer ID is missing.');
+            }
         } catch (error) {
             console.error('Registration failed:', error);
             alert('Registration failed: ' + (error.response?.data?.error || error.message || 'Unknown error'));
