@@ -1,4 +1,3 @@
-// src/components/CustomerService/customer.js
 import React from "react";
 import "./customerService.css";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ function Header() {
     <header className="header">
       <div className="logo">Welcome Customer!</div>
       <div className="button-group">
-        <TicketButton />
+        {/* Only the Profile Button is kept */}
         <ProfileButton />
       </div>
     </header>
@@ -26,21 +25,6 @@ function ProfileButton() {
   return (
     <button className="profile-btn" onClick={handleClick}>
       P
-    </button>
-  );
-}
-
-// Ticket Button Component
-function TicketButton() {
-  const navigate = useNavigate(); // Hook to navigate programmatically
-
-  const handleClick = () => {
-    navigate("/CustomerTicket"); // Navigate to the ticket page
-  };
-
-  return (
-    <button className="ticket-btn" onClick={handleClick}>
-      <i className="fas fa-headset"></i>
     </button>
   );
 }

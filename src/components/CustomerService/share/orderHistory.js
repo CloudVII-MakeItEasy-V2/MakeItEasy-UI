@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./orderHistory.css";
 
-const COMPOSITE_SERVICE_URL = process.env.REACT_APP_COMPOSITE_SERVICE_URL || "http://127.0.0.1:8080";
+const COMPOSITE_SERVICE_URL = "http://127.0.0.1:8080";
 
-const fetchOrderHistory = async (customerId, page = 1, per_page = 10) => {
-  const url = `${COMPOSITE_SERVICE_URL}/orders?customer_id=${customerId}&page=${page}&page_size=${per_page}`;
+// Fetch order history from the API Gateway
+const fetchOrderHistory = async (customerId) => {
+  // Include default pagination parameters (if required by the backend)
+  const url = `${COMPOSITE_SERVICE_URL}/customer/orders/${customerId}?page=1&page_size=10`;
+  console.log(url);
+
   const token = localStorage.getItem("authToken");
   const grants = localStorage.getItem("grants");
 
@@ -12,8 +16,9 @@ const fetchOrderHistory = async (customerId, page = 1, per_page = 10) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: token,
+      Authorization: `${token}`, // Ensure "Bearer" prefix is included
       grants: grants,
+      "X-Correlation-ID": "frontend-unique-id", // Optional, for tracing
     },
   });
 
@@ -30,14 +35,14 @@ function OrderHistoryPage() {
   const [error, setError] = useState(null);
 
   const customerId = localStorage.getItem("customerId");
-  const [page, setPage] = useState(1);
-  const per_page = 10;
 
   useEffect(() => {
     const loadOrderHistory = async () => {
       try {
         setLoading(true);
-        const fetchedOrders = await fetchOrderHistory(customerId, page, per_page);
+        setError(null); // Reset error state before fetching
+        const fetchedOrders = await fetchOrderHistory(customerId);
+
         setOrders(fetchedOrders.orders || []);
       } catch (err) {
         setError(err.message);
@@ -48,48 +53,46 @@ function OrderHistoryPage() {
     };
 
     loadOrderHistory();
-  }, [customerId, page]);
+  }, [customerId]);
 
+  // Render loading state
   if (loading) {
     return <p>Loading order history...</p>;
   }
 
+  // Render error state
   if (error) {
     return <p className="error">{error}</p>;
   }
 
+  // Render no orders found state
+  if (orders.length === 0) {
+    return (
+      <div className="order-history-container">
+        <h1>Order History</h1>
+        <p>No orders found. Please check your account or try again later.</p>
+      </div>
+    );
+  }
+
+  // Render order list
   return (
     <div className="order-history-container">
       <h1>Order History</h1>
 
-      {orders.length === 0 ? (
-        <p>No orders found. Please check your account or try again later.</p>
-      ) : (
-        <ul className="order-list">
-          {orders.map((order) => (
-            <li key={order.order_id} className="order-item">
-              <div className="order-details">
-                <p>Order ID: {order.order_id}</p>
-                <p>Total: ${Number(order.total_amount).toFixed(2)}</p>
-                <p>Tracking Number: {order.tracking_number || "N/A"}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="pagination-controls">
-        {page > 1 && (
-          <button onClick={() => setPage((prevPage) => prevPage - 1)}>
-            Previous Page
-          </button>
-        )}
-        {orders.length === per_page && (
-          <button onClick={() => setPage((prevPage) => prevPage + 1)}>
-            Next Page
-          </button>
-        )}
-      </div>
+      <ul className="order-list">
+        {orders.map((order) => (
+          <li key={order.order_id} className="order-item">
+            <div className="order-details">
+              <p><strong>Order ID:</strong> {order.order_id}</p>
+              <p><strong>Total:</strong> ${Number(order.total_amount).toFixed(2)}</p>
+              <p><strong>Tracking Number:</strong> {order.tracking_number || "N/A"}</p>
+              <p><strong>Status:</strong> {order.status || "Unknown"}</p>
+              <p><strong>Order Date:</strong> {new Date(order.created_date).toLocaleDateString()}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

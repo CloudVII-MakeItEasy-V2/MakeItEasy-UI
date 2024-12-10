@@ -10,13 +10,14 @@ const Register = () => {
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
-    const [loading, setLoading] = useState(false); // Loading state
+    const [balance, setBalance] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate(); // Initialize the navigate function
 
     // Form validation helper
     const validateForm = () => {
-        if (!name || !email || !address || !phone || !password) {
+        if (!name || !email || !address || !phone || !password || !balance) {
             alert('All fields are required!');
             return false;
         }
@@ -32,6 +33,11 @@ const Register = () => {
         }
         if (password.length < 6) {
             alert('Password must be at least 6 characters long!');
+            return false;
+        }
+        const balanceRegex = /^[0-9]+$/; // Only positive numbers allowed
+        if (!balanceRegex.test(balance)) {
+            alert('Balance must be a positive number!');
             return false;
         }
         return true;
@@ -50,10 +56,12 @@ const Register = () => {
             address,
             phone,
             password,
+            balance: parseFloat(balance), // Ensure balance is a number
         };
 
         console.log('Sending data:', userData);
         setLoading(true); // Show loading state
+
         try {
             const response = await axios.post(
                 'http://127.0.0.1:8080/customer/register',
@@ -67,19 +75,26 @@ const Register = () => {
 
             console.log('Registration successful:', response.data);
 
-            // Extract customerId from the response
-            const customerId = response.data.customer.customerId; // Assuming "customerId" is included in the response
-            if (customerId) {
-                console.log('Customer ID retrieved:', customerId);
+            // Extract values from the response
+            const customerId = response.data.customer.customerId; // Assuming "customerId" is included in the response body
+            const token = response.headers['authorization']; // Extract token from headers
+            const grants = response.headers['x-grants']; // Extract grants from headers
 
-                // Store customerId in session storage (or local storage as needed)
-                sessionStorage.setItem('customerId', customerId);
+            if (customerId && token && grants) {
+                console.log('Customer ID:', customerId);
+                console.log('Token:', token);
+                console.log('Grants:', grants);
 
-                // Redirect to the Customer Service page (or any desired page)
+                // Store values in localStorage
+                localStorage.setItem('customerId', customerId);
+                localStorage.setItem('authToken', token);
+                localStorage.setItem('grants', grants);
+
+                // Redirect to the desired page
                 navigate('/CustomerService');
             } else {
-                console.error('Customer ID not found in the response.');
-                alert('Registration successful, but customer ID is missing.');
+                console.error('Missing required values from the server response.');
+                alert('Registration successful, but some data is missing.');
             }
         } catch (error) {
             console.error('Registration failed:', error);
@@ -146,6 +161,18 @@ const Register = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="balance">Balance</label>
+                        <input
+                            type="number"
+                            id="balance"
+                            value={balance}
+                            onChange={(e) => setBalance(e.target.value)}
+                            required
+                            min="0"
+                            step="1"
                         />
                     </div>
                     <button type="submit" disabled={loading}>
