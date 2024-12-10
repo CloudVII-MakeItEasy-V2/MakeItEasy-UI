@@ -1,74 +1,130 @@
+/* Product.css */
+
+/* Container */
 .product-container {
   padding: 20px;
+}
+
+/* Add a wrapper around the table to enable scrolling */
+.product-table-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .product-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
-.product-table th, .product-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+.product-table th,
+.product-table td {
   text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
 }
 
-.product-table th {
-  background-color: 		#03396c;
-  font-weight: bold;
-  color: 	#b3cde0;
-  font-weight: bold;
+thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Ensures header columns align with body */
 }
 
-.product-table tr:hover {
+.table-body-scroll {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+.table-body-scroll table {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Ensures body columns align with header */
+}
+
+tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.edit-button, .delete-button, .add-button {
-  padding: 5px 10px;
-  margin-right: 5px;
-  border: none;
-  cursor: pointer;
+tbody tr:hover {
+  background-color: #f1f1f1;
 }
 
-.edit-button {
-  background-color: white;
-  color: 	#011f4b;
-  border-radius: 5px;
+thead tr {
+  background-color: #f4f4f4;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-.edit-button:hover {
-  background-color: #45a049;
-}
-
-.delete-button {
-  background-color: 	#011f4b;
-  color: white;
-  border-radius: 5px;
-}
-
-.edit-button:hover {
-  background-color: #45a049;
-}
-
-
-.delete-button:hover {
-  background-color: #d32f2f;
-}
-
+/* Add Product Button */
 .add-button {
-  margin-top: 3px;
-  padding: 10px 20px;
-  background-color: white;
-  color: black;
+  padding: 10px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  background-color: #03396c;
+  color: white;
   border: none;
-  border-radius: 0px;
+  text-align: center;
+  font-size: 14px;
   cursor: pointer;
+  width: 100px;
+  position: relative; /* Ensure it's properly positioned */
+  float: right; /* Align to the right */
+  z-index: 10; /* Bring it above other elements */
 }
 
 .add-button:hover {
-  background-color: #1976D2;
+  background-color: #6497b1; /* Change background color on hover */
 }
 
+/* Back Button */
+.back-button {
+  padding: 6px; /* Reduced padding */
+  margin-top: 10px; /* Corrected spacing for margin */
+  margin-bottom: 30px;
+  background-color: #03396c;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  width: 80px;
+}
 
+.back-button:hover {
+  background-color: #6497b1; /* Change background color on hover */
+}
+
+/* Edit Button */
+.edit-button {
+  background-color: rgb(255, 255, 255); /* White background */
+  color: #03396c; /* Blue text color */
+  padding: 6px;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.edit-button:hover {
+  background-color: rgb(220, 240, 255); /* Light blue hover effect */
+}
+
+/* Delete Button */
+.delete-button {
+  background-color: #03396c; /* Blue button background */
+  color: white; /* Gray text color */
+  border: none; /* No border */
+  padding: 6px;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  background-color: #6497b1; /* Lighter blue hover effect */
+  color: white; /* White text on hover */
+}

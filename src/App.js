@@ -16,6 +16,9 @@ import SellerService from './components/SellerService/sellerService';
 import SellerOrders from './components/SellerService/components/Seller/Orders/trackOrder'; // Adjusted path for Orders
 import SellerManageProduct from './components/SellerService/components/Seller/Product/manageProduct'; // Adjusted path for ManageProduct
 import SellerAccount from './components/SellerService/components/Seller/Account/account'; // Adjusted path for Account
+import SellerRegister from './components/SellerLogin/SellerRegister';
+import AddProduct from './components//SellerService/components/Seller/Product/addProduct';
+
 
 function App() {
   return (
@@ -38,6 +41,9 @@ function App() {
         <Route path="/SellerOrders" element={<SellerOrders />} />
         <Route path="/SellerProduct" element={<SellerManageProduct />} />
         <Route path="/SellerProfile" element={<SellerAccount />} />
+        <Route path="/SellerRegister" element={<SellerRegister />} />
+        <Route path="/SellerProductAdd" element={<AddProduct />} />
+
       </Routes>
     </Router>
   );

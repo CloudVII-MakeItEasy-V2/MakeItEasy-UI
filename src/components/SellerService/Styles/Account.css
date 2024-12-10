@@ -1,28 +1,54 @@
+/* Center align the entire account page */
+.account-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center */
+  align-items: center; /* Horizontally center */
+  background-color: #f9f9f9; /* Optional: Set a light background */
+}
 
-.bold{
-  font-weight: bold;
-}
-.back-button{
-  align-items: left;
-}
+/* Center align the container */
 .account-container {
-  padding: 20px; /* Optional: To give some padding around the content */
-  align-items:center;
-  text-align: center;
+  padding: 20px; /* Optional: Padding around content */
+  background-color: #ffffff; /* White background for the profile box */
+  border: 1px solid #ddd; /* Optional: Add a border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+  max-width: 500px; /* Restrict the width */
+  text-align: center; /* Center text inside the container */
+  margin-top: 100px;
 }
 
-
+/* Style for the back button */
 .back-button {
-  margin-top: 10px; /* Adds margin from the top */
-  margin-left: 0 !important;   /* Aligns the button to the left */
-  padding: 10px 20px; /* Add some padding inside the button for a better look */
+  margin: 10px 0; /* Space around the button */
+  padding: 10px 20px; /* Padding inside the button */
   background-color: #03396c; /* Button background color */
   color: white; /* Button text color */
-  border: none; /* Remove default border */
-  cursor: pointer; /* Show pointer on hover */
-  border-radius: 20px;
+  border: none; /* Remove border */
+  border-radius: 20px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
-.left{
-  width: 800px; 
+.back-button:hover {
+  background-color: #6497b1; /* Lighter blue hover effect */
+}
+
+/* Style for headings and text */
+h1 {
+  margin-top:30px;
+  margin-bottom: 20px; /* Space below the heading */
+  font-size: 24px;
+  color: #03396c;
+}
+
+p {
+  margin: 10px 0; /* Space between paragraphs */
+  font-size: 16px;
+  color: #333;
+}
+
+strong {
+  color: #03396c; /* Highlight strong text with a darker color */
 }
