@@ -32,7 +32,7 @@ const fetchCustomerProfile = async (customerId) => {
 
     console.log("Request Headers:", headers);
 
-    const response = await axios.get(`http://127.0.0.1:8080/customer/${customerId}`, { headers });
+    const response = await axios.get(`https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}`, { headers });
 
     console.log("Customer Profile:", response.data);
     return response.data;

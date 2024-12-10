@@ -29,7 +29,7 @@ const Login = () => {
     try {
       // Send POST request to the login endpoint
       const response = await axios.post(
-        'http://127.0.0.1:8080/customer/login',
+        'https://makeiteasy-440104.ue.r.appspot.com/customer/login',
         userData,
         {
           headers: { 'Content-Type': 'application/json' },

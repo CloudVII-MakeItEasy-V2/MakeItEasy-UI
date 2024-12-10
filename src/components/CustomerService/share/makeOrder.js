@@ -116,7 +116,7 @@ function MakeOrderPage() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8080/customer/${customerId}/orders`,
+        `https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}/orders`,
         {
           method: "POST",
           headers: {

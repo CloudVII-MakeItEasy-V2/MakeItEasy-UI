@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./orderHistory.css";
 
-const COMPOSITE_SERVICE_URL = "http://127.0.0.1:8080";
+const COMPOSITE_SERVICE_URL = "https://makeiteasy-440104.ue.r.appspot.com";
 
 // Fetch order history from the API Gateway
 const fetchOrderHistory = async (customerId) => {

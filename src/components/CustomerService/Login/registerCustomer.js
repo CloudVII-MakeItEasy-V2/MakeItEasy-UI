@@ -64,7 +64,7 @@ const Register = () => {
 
         try {
             const response = await axios.post(
-                'http://127.0.0.1:8080/customer/register',
+                'https://makeiteasy-440104.ue.r.appspot.com/customer/register',
                 JSON.stringify(userData),
                 {
                     headers: {
