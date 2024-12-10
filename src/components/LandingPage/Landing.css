@@ -41,7 +41,7 @@ body, html {
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Stack buttons vertically */
-  height: calc(100vh - 120px); /* Full height minus header and footer (60px each) */
+  height: calc(110vh - 120px); /* Full height minus header and footer (60px each) */
   background-color: #E3C6C2;
   text-align: center;
   padding: 0 20px; /* Add horizontal padding for responsiveness */
