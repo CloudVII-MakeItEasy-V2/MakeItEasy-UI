@@ -1,13 +1,23 @@
 .cart-display {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-  }
-  
-  .cart-display h3 {
-    margin-bottom: 10px;
-  }
-  
-  .cart-display p {
-    margin: 5px 0;
-  }
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  text-align: center; /* Center-align the text horizontally */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center-align the elements */
+  justify-content: center; /* Center-align content vertically */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+}
+
+.cart-display h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem; /* Slightly increase font size for better emphasis */
+  color: #333; /* Darker color for better readability */
+}
+
+.cart-display p {
+  margin: 5px 0;
+  font-size: 1rem; /* Adjust font size for consistency */
+  color: #555; /* Subtle color for body text */
+}

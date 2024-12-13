@@ -1,9 +1,11 @@
-/* General body styling */
+/* Ensure the root and body take up the full height of the viewport */
+html,
 body {
-  font-family: Arial, sans-serif;
-  background-color: #E3C6C2;
-  margin: 0;
-  padding: 0;
+  height: 100%; /* Make the root and body take up the full viewport height */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default paddings */
+  display: flex; /* Use Flexbox to structure the layout */
+  flex-direction: column; /* Stack the header, main content, and footer vertically */
   box-sizing: border-box;
 }
 
@@ -21,12 +23,7 @@ body {
   width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+  height: 60px; /* Explicit height */
 }
 
 /* Footer styles */
@@ -41,18 +38,19 @@ body {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  height: 60px; /* Explicit height */
 }
 
-/* Profile container styles */
+/* Main content container */
 .profile-container {
-  max-width: 100%;
-  height: 100%;
-  margin: 80px auto 50px; /* Adjust for fixed header and footer */
-  padding: 20px;
+  flex: 1; /* Allow the container to grow and fill the available space */
+  padding: 80px 20px 80px; /* Add padding to account for the fixed header and footer */
   background-color: #E3C6C2;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  box-sizing: border-box;
 }
 
 /* Profile heading styles */
@@ -73,38 +71,6 @@ body {
   color: #AC7B77;
 }
 
-/* Order list styles */
-.order-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.order-list li {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #AC7B77;
-  border-radius: 5px;
-  color: white;
-}
-
-/* Support tickets button */
-.support-tickets-button {
-  padding: 10px 15px;
-  font-size: 16px;
-  background-color: #C79090;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.support-tickets-button:hover {
-  background-color: #AC7B77;
-}
-
 /* Error message styling */
 .error {
   color: red;
@@ -116,30 +82,26 @@ body {
 /* Responsive design */
 @media (max-width: 768px) {
   .header {
-      font-size: 1.2rem;
-      padding: 10px;
+    font-size: 1.2rem;
+    padding: 10px;
+    height: 50px; /* Adjust header height for smaller screens */
   }
 
   .footer {
-      font-size: 0.8rem;
-      padding: 0.8rem;
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    height: 50px; /* Adjust footer height for smaller screens */
   }
 
   .profile-container {
-      margin: 100px 10px 60px; /* Adjust margins for smaller screens */
-      padding: 15px;
+    padding: 60px 15px 60px; /* Adjust padding for smaller header/footer */
   }
 
   .profile-container h1 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .profile-details p {
-      font-size: 16px;
-  }
-
-  .support-tickets-button {
-      font-size: 14px;
-      padding: 8px 12px;
+    font-size: 16px;
   }
 }

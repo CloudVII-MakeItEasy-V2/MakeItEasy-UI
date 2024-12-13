@@ -21,7 +21,9 @@ const fetchCustomerProfile = async (customerId) => {
     const grants = localStorage.getItem("grants");
 
     if (!token || !grants) {
-      throw new Error("Authentication token or grants are missing. Please log in again.");
+      throw new Error(
+        "Authentication token or grants are missing. Please log in again."
+      );
     }
 
     const headers = {
@@ -32,7 +34,10 @@ const fetchCustomerProfile = async (customerId) => {
 
     console.log("Request Headers:", headers);
 
-    const response = await axios.get(`http://127.0.0.1:8080/customer/${customerId}`, { headers });
+    const response = await axios.get(
+      `http://127.0.0.1:8080/customer/${customerId}`,
+      { headers }
+    );
 
     console.log("Customer Profile:", response.data);
     return response.data;
@@ -42,7 +47,9 @@ const fetchCustomerProfile = async (customerId) => {
     // Provide more detailed error messages
     if (error.response) {
       console.error("Server Response:", error.response.data);
-      throw new Error(error.response.data.error || "Failed to fetch customer profile.");
+      throw new Error(
+        error.response.data.error || "Failed to fetch customer profile."
+      );
     }
 
     throw error;
@@ -76,7 +83,8 @@ function ProfilePage() {
           setError("Unauthorized request. Please log in again.");
         } else {
           setError(
-            err.message || "Failed to load customer profile. Please try again later."
+            err.message ||
+              "Failed to load customer profile. Please try again later."
           );
         }
       } finally {
@@ -158,4 +166,5 @@ function ProfilePage() {
   );
 }
 
+// Ensure this export is at the top level
 export default ProfilePage;
