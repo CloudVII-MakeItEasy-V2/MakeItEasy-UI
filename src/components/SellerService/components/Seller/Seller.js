@@ -10,16 +10,16 @@ const Seller = () => {
       <div className="rectangles">
         <Link to="/SellerOrders" className="rectangle">
         <div className='upper2'> 
-        <div>  <h1>Orders</h1> </div>
-        <div>   <p> track, manage, and update the status of customer orders.</p></div>
+        <div>  <h1 className="white">Orders</h1> </div>
+        <div>   <p className="white"> track, manage, and update the status of customer orders.</p></div>
         </div>
     
         </Link>
         <Link to="/Sellerproduct" className="rectangle">
         <div className='upper'> 
-        <div>  <h1>Products</h1> </div>
+        <div>  <h1 className="white">Products</h1> </div>
         <div>  
-           <p> add, edit, and manage product listings for sale.</p>
+           <p className="white"> add, edit, and manage product listings for sale.</p>
         </div>
         </div>
         </Link>

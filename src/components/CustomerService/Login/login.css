@@ -137,3 +137,21 @@ button:hover {
         font-size: 14px;
     }
 }
+
+
+.form-group{
+        font-size: 16px;
+        border-radius: 5px;
+        align-items: center;
+        text-align: center;
+        margin-bottom:0;
+}
+
+.form{
+        align-items: center;
+      text-align: center;
+}
+
+.input{
+    margin:100px;
+}

@@ -70,7 +70,7 @@ const SellerRegister = () => {
           </div>
         ) : (
           <>
-            <h2>Register as a New Seller</h2>
+            <h2 className="pink">Register as a New Seller</h2>
             <input
               type="text"
               placeholder="Name"

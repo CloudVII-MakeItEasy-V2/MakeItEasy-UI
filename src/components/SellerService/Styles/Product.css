@@ -61,7 +61,7 @@ thead tr {
   padding: 10px;
   margin-right: 30px;
   margin-bottom: 10px;
-  background-color: #03396c;
+  background-color: #A17977;
   color: white;
   border: none;
   text-align: center;
@@ -82,7 +82,7 @@ thead tr {
   padding: 6px; /* Reduced padding */
   margin-top: 10px; /* Corrected spacing for margin */
   margin-bottom: 30px;
-  background-color: #03396c;
+  background-color: #A17977;
   color: white;
   border: none;
   text-align: center;
@@ -98,7 +98,7 @@ thead tr {
 /* Edit Button */
 .edit-button {
   background-color: rgb(255, 255, 255); /* White background */
-  color: #03396c; /* Blue text color */
+  color: #A17977; /* Blue text color */
   padding: 6px;
   width: 80px;
   text-align: center;
