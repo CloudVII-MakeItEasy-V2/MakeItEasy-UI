@@ -1,0 +1,27 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install http-proxy-middleware
+8 verbose argv "install" "http-proxy-middleware" "--save"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-10T02_56_06_055Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-10T02_56_06_055Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest http-proxy-middleware@^3.0.3
+16 silly packumentCache full:https://registry.npmjs.org/http-proxy-middleware cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/http-proxy-middleware 294ms (cache revalidated)
+18 silly packumentCache full:https://registry.npmjs.org/http-proxy-middleware set size:301873 disposed:false
+19 silly placeDep ROOT http-proxy-middleware@3.0.3 REPLACE for: makeiteasy@0.1.0 want: ^3.0.3
+20 silly reify moves {}
+21 verbose cwd /Users/lixiachen/Desktop/MakeItEasy-UI
+22 verbose os Darwin 23.6.0
+23 verbose node v22.8.0
+24 verbose npm  v10.8.3
+25 verbose exit 0
+26 info ok

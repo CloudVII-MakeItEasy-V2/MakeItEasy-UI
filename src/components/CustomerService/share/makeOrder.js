@@ -116,18 +116,18 @@ function MakeOrderPage() {
     console.log("Order Data:", orderData);
 
     try {
-      // API Gateway endpoint (replace with your actual endpoint)
-      const apiGatewayEndpoint = `http://127.0.0.1:8080/customer/${customerId}/orders`;
-
-      const response = await fetch(apiGatewayEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${token}`, // Pass the token for authentication
-          "X-Grants": grants, // Include grants header
-        },
-        body: JSON.stringify(orderData), // Send the correctly formatted payload
-      });
+      const response = await fetch(
+        `https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}/orders`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`, // Correctly formatted token
+            "X-Grants": grants,
+          },
+          body: JSON.stringify(orderData),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
