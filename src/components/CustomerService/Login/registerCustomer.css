@@ -59,7 +59,8 @@ body {
 /* Form group styles */
 .form-group {
     margin-bottom: 15px;
-    text-align: left;
+    text-align: center;
+    width: 400px;
 }
 
 label {
@@ -67,6 +68,8 @@ label {
     margin-bottom: 5px;
     font-size: 16px;
     color: #333;
+    text-align: left;
+    margin: 15px;
 }
 
 input[type="text"],
@@ -110,7 +113,7 @@ button:hover {
 
     .register-container {
         margin: 140px 20px; /* Add spacing for header and footer */
-        padding: 15px;
+        padding: 35px;
     }
 
     button {

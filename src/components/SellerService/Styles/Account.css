@@ -23,7 +23,7 @@
 .back-button {
   margin: 10px 0; /* Space around the button */
   padding: 10px 20px; /* Padding inside the button */
-  background-color: #03396c; /* Button background color */
+  background-color:#A17977; /* Button background color */
   color: white; /* Button text color */
   border: none; /* Remove border */
   border-radius: 20px; /* Rounded corners */
@@ -40,7 +40,7 @@ h1 {
   margin-top:30px;
   margin-bottom: 20px; /* Space below the heading */
   font-size: 24px;
-  color: #03396c;
+  color: #A17977;
 }
 
 p {
@@ -50,5 +50,5 @@ p {
 }
 
 strong {
-  color: #03396c; /* Highlight strong text with a darker color */
+  color: #A17977; /* Highlight strong text with a darker color */
 }

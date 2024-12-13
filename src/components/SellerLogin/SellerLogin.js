@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link  } from 'react-router-dom';
 import './SellerLogin.css';
+
 
 const SellerLogin = () => {
   const [email, setUsername] = useState('');
@@ -23,15 +24,18 @@ const SellerLogin = () => {
     }
   };
 
-  const handleRegisterClick = () => {
-    navigate('/SellerRegister');
-  };
+
+  const Header = () => (
+    <header className="header">
+      <div className="logo">Welcome! Please Log In First.</div>
+    </header>
+  );
 
   return (
     <div className="login-page">
-      <div className="navbar">Seller Login</div>
+      <Header /> 
       <div className="login-container">
-        <h2>Seller Login</h2>
+      <h2> Seller Login</h2>   
         <input
           type="text"
           placeholder="Email"
@@ -46,7 +50,12 @@ const SellerLogin = () => {
         />
         <button onClick={handleLogin}>Login</button>
         {/* New Register Button */}
-        <button onClick={handleRegisterClick}>Register as a New Seller</button>
+        <div>
+
+    
+       Not a customer yet?  <Link to="/SellerRegister">Click here to register!</Link>
+        </div>
+
       </div>
 
       <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>

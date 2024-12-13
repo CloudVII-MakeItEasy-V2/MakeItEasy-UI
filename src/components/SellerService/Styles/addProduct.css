@@ -1,7 +1,7 @@
 /* General page styling */
 .add-product-page {
   font-family: Arial, sans-serif;
-  padding: 20px;
+
   background-color: #f9f9f9;
   min-height: 100vh;
   display: flex;
@@ -26,7 +26,7 @@
 .add-product-container h1 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #03396c;
+  color:#A17977 ;
 }
 
 /* Error and success messages */
@@ -54,7 +54,7 @@
 /* Form group styling */
 .form-group {
   margin-bottom: 15px;
-  text-align: left;
+  text-align: center;
 }
 
 .form-group label {
@@ -66,7 +66,7 @@
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
+  width: 460px;
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -93,7 +93,7 @@
 
 /* Submit button styling */
 .submit-button {
-  background-color: #03396c;
+  background-color: #A17977;
   color: white;
   padding: 10px 20px;
   font-size: 14px;
@@ -105,12 +105,12 @@
 }
 
 .submit-button:hover {
-  background-color: #6497b1;
+  background-color:#A17977;
 }
 
 /* Back button styling */
 .back-button {
-  background-color: #03396c;
+  background-color:#A17977;
   color: white;
   padding: 10px;
   font-size: 14px;

@@ -62,8 +62,8 @@
   width: 320px; /* Slightly wider to match input fields including margins */
   padding: 10px;
   margin-top: 20px;
-  background-color: #6497b1;
-  color: white;
+  background-color: #E3C6C2;
+  color:#A17977 ;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -83,4 +83,7 @@
 }
 .successbutton{
   background-color: #6497b1;
+}
+.pink{
+ color:  #A17977;
 }
