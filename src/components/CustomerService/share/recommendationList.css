@@ -1,32 +1,56 @@
 .item-list {
-    margin-bottom: 20px;
-  }
-  
-  .item-list {
-    margin-bottom: 10px;
-  }
-  
-  .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .item:last-child {
-    border-bottom: none;
-  }
-  
-  .item button {
-    padding: 5px 10px;
-    background-color: #C79090;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .item button:hover {
-    background-color: #c79090;
-  }
+  margin-bottom: 20px; /* Consistent spacing below the list */
+  width: 100%; /* Ensures it takes full width of the container */
+  max-width: 600px; /* Limits the width for better readability */
+  margin: 0 auto; /* Centers the list horizontally */
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px; /* Add padding for better spacing */
+  background-color: #fff; /* White background for contrast */
+  border: 1px solid #eee; /* Subtle border for separation */
+  border-radius: 4px; /* Rounded corners for a clean look */
+  margin-bottom: 10px; /* Add spacing between items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+}
+
+.item:last-child {
+  margin-bottom: 0; /* Removes margin for the last item */
+}
+
+.item h3 {
+  font-size: 1rem; /* Adjust font size for a compact look */
+  color: #333;
+  margin: 0;
+  flex: 2; /* Adjust width proportion for the name */
+  text-align: left;
+}
+
+.item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  flex: 1; /* Adjust width proportion for the price */
+  text-align: center;
+}
+
+.item button {
+  padding: 6px 12px; /* Compact padding for button */
+  font-size: 0.9rem; /* Adjust font size for consistency */
+  background-color: #C79090;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1; /* Adjust width proportion for the button */
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.item button:hover {
+  background-color: #A17977; /* Slightly darker hover effect */
+  transform: scale(1.02); /* Subtle scale on hover */
+}

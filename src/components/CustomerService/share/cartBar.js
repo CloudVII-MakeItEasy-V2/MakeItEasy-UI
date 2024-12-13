@@ -1,4 +1,5 @@
 import React from "react";
+import "./cartBar.css";
 
 function CartBar({ cartItems, totalPrice }) {
   return (

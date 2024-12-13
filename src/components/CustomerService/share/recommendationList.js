@@ -1,21 +1,20 @@
-import React from "react";
-import "./recommendationList.css"
-function RecommendationList({ items, onAddToCart }) {
+const RecommendationList = ({ items, onAddToCart }) => {
   return (
-    <div className="item-list">
-      {items.length > 0 ? (
-        items.map((item) => (
-          <div key={item.id} className="item">
-            <span>{item.name}</span>
-            <span>${item.price.toFixed(2)}</span>
-            <button onClick={() => onAddToCart(item)}>Add to Cart</button>
-          </div>
-        ))
-      ) : (
-        <p>No items found</p>
-      )}
+    <div className="recommendation-list">
+      {items.map((item) => (
+        <div className="recommendation-item" key={item.id}>
+          <h3>{item.name}</h3>
+          <p>${item.price.toFixed(2)}</p>
+          <button
+            className="add-to-cart-button"
+            onClick={() => onAddToCart(item)}
+          >
+            Add to Cart
+          </button>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default RecommendationList;
