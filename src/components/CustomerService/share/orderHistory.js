@@ -116,14 +116,14 @@ const OrderHistoryPage = () => {
           <ul className="order-list">
             {orders.map((order) => (
               <li key={order.order_id} className="order-item">
-                <div className="order-details">
-                  <p><strong>Order ID:</strong> {order.order_id}</p>
-                  <p><strong>Total:</strong> ${Number(order.total_amount).toFixed(2)}</p>
-                  <p><strong>Tracking Number:</strong> {order.tracking_number || "N/A"}</p>
-                  <p><strong>Status:</strong> {order.status || "Unknown"}</p>
-                  <p><strong>Order Date:</strong> {new Date(order.created_date).toLocaleDateString()}</p>
-                </div>
-              </li>
+              <div className="order-details">
+                <p><strong>Order ID:</strong> {order.order_id}</p>
+                <p><strong>Total:</strong> ${Number(order.total_amount).toFixed(2)}</p>
+                <p><strong>Tracking Number:</strong> {order.tracking_number || "N/A"}</p>
+                <p><strong>Status:</strong> {order.status || "Unknown"}</p>
+                <p><strong>Order Date:</strong> {new Date(order.created_date).toLocaleDateString()}</p>
+              </div>
+            </li>
             ))}
           </ul>
         </div>

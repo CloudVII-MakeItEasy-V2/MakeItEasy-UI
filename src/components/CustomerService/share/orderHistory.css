@@ -71,11 +71,19 @@ h1 {
 
 .order-item {
   border: 1px solid #ccc;
-  background-color: #AC7B77;
+  background-color: #AC7B75;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
-  color: #fff;
+  color: #000; /* Change text color to black */
+}
+
+.order-details p {
+  color: #000; /* Set text color for all <p> elements inside .order-details */
+}
+
+.order-details strong {
+  color: #000; /* Ensure <strong> elements are also black */
 }
 
 .order-item:last-child {
