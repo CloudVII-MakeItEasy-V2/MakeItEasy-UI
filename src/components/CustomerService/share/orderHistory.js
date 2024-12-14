@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios"; // Import axios
 import "./orderHistory.css";
 
 const COMPOSITE_SERVICE_URL = "https://makeiteasy-440104.ue.r.appspot.com";
@@ -22,7 +23,7 @@ const OrderHistoryPage = () => {
     <footer className="footer">© 2024 MakeItEasy. All rights reserved.</footer>
   );
 
-  // Fetch order history
+  // Fetch order history using axios
   const fetchOrderHistory = async (customerId) => {
     const url = `${COMPOSITE_SERVICE_URL}/customer/orders/${customerId}?page=1&page_size=10`;
     console.log(url);
@@ -30,21 +31,24 @@ const OrderHistoryPage = () => {
     const token = localStorage.getItem("authToken");
     const grants = localStorage.getItem("grants");
 
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-        grants: grants,
-        "X-Correlation-ID": "frontend-unique-id",
-      },
-    });
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
+          grants: grants,
+          "X-Correlation-ID": "frontend-unique-id",
+        },
+      });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch orders. Status: ${response.status}`);
+      return response.data; // axios automatically parses JSON
+    } catch (err) {
+      throw new Error(
+        `Failed to fetch orders. Status: ${
+          err.response ? err.response.status : "Network Error"
+        }`
+      );
     }
-
-    return await response.json();
   };
 
   useEffect(() => {
@@ -116,14 +120,14 @@ const OrderHistoryPage = () => {
           <ul className="order-list">
             {orders.map((order) => (
               <li key={order.order_id} className="order-item">
-              <div className="order-details">
-                <p><strong>Order ID:</strong> {order.order_id}</p>
-                <p><strong>Total:</strong> ${Number(order.total_amount).toFixed(2)}</p>
-                <p><strong>Tracking Number:</strong> {order.tracking_number || "N/A"}</p>
-                <p><strong>Status:</strong> {order.status || "Unknown"}</p>
-                <p><strong>Order Date:</strong> {new Date(order.created_date).toLocaleDateString()}</p>
-              </div>
-            </li>
+                <div className="order-details">
+                  <p><strong>Order ID:</strong> {order.order_id}</p>
+                  <p><strong>Total:</strong> ${Number(order.total_amount).toFixed(2)}</p>
+                  <p><strong>Tracking Number:</strong> {order.tracking_number || "N/A"}</p>
+                  <p><strong>Status:</strong> {order.status || "Unknown"}</p>
+                  <p><strong>Order Date:</strong> {new Date(order.created_date).toLocaleDateString()}</p>
+                </div>
+              </li>
             ))}
           </ul>
         </div>

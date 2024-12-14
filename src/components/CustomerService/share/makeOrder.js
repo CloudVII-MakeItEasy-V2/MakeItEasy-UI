@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import axios
 import "./makeOrder.css";
 import SearchBox from "./searchBox";
 import CartBar from "./cartBar";
@@ -116,33 +117,35 @@ function MakeOrderPage() {
     console.log("Order Data:", orderData);
 
     try {
-      const response = await fetch(
+      const response = await axios.post(
         `https://makeiteasy-440104.ue.r.appspot.com/customer/${customerId}/orders`,
+        orderData,
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `${token}`, // Correctly formatted token
             "X-Grants": grants,
           },
-          body: JSON.stringify(orderData),
         }
       );
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Order created successfully:", data);
-        alert(`Order created successfully! Order ID: ${data.order_id}`);
-        setCartItems([]); // Clear the cart after successful checkout
-        setTotalPrice(0); // Reset the total price
-      } else {
-        const errorDetails = await response.json();
-        console.error("Order creation failed:", errorDetails);
-        alert(`Order creation failed: ${errorDetails.error || "Unknown error"}`);
-      }
+      const data = response.data;
+      console.log("Order created successfully:", data);
+      alert(`Order created successfully! Order ID: ${data.order_id}`);
+      setCartItems([]); // Clear the cart after successful checkout
+      setTotalPrice(0); // Reset the total price
     } catch (error) {
-      console.error("Error during checkout:", error);
-      alert("An error occurred while creating the order. Please try again.");
+      if (error.response) {
+        console.error("Order creation failed:", error.response.data);
+        alert(
+          `Order creation failed: ${
+            error.response.data.error || "Unknown error"
+          }`
+        );
+      } else {
+        console.error("Error during checkout:", error.message);
+        alert("An error occurred while creating the order. Please try again.");
+      }
     }
   };
 
