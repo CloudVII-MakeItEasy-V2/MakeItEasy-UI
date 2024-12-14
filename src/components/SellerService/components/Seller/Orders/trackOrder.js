@@ -7,77 +7,117 @@ import Footer from '../../Footer'; // Adjust the path as necessary
 const Orders = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchOrdersForSeller = async () => {
-      try {
-        // Fetch seller's products
-        const productsResponse = await fetch('http://127.0.0.1:8000/seller/1/products');
-        if (!productsResponse.ok) {
-          throw new Error(`Error fetching products: ${productsResponse.statusText}`);
-        }
-        const productsData = await productsResponse.json();
+      const sellerId = localStorage.getItem('sellerId'); // Get seller_id from localStorage
+      if (!sellerId) {
+        alert('No seller logged in');
+        navigate('/SellerLogin');
+        return;
+      }
 
-        // Fetch seller dashboard URL
-        const sellerManagementResponse = await fetch('http://127.0.0.1:8000/seller_management/1');
-        if (!sellerManagementResponse.ok) {
-          throw new Error(`Error fetching seller management info: ${sellerManagementResponse.statusText}`);
+      try {
+        setLoading(true);
+
+        // Fetch products and seller management info concurrently
+        const [productsResponse, sellerManagementResponse] = await Promise.all([
+          fetch(`http://34.86.154.165:8000/seller/${sellerId}/products`),
+          fetch(`http://34.86.154.165:8000/seller_management/${sellerId}`),
+        ]);
+
+        if (!productsResponse.ok || !sellerManagementResponse.ok) {
+          throw new Error('Error fetching seller data');
         }
+
+        const productsData = await productsResponse.json();
         const sellerManagementData = await sellerManagementResponse.json();
         const dashboardUrl = sellerManagementData.dashboard_url;
 
-        // Extract product IDs
-        const sellerProductIds = productsData.products.map((product) => product.product_id);
+        // Create a lookup table for product names by product_id
+        const productNameLookup = productsData.products.reduce((lookup, product) => {
+          lookup[product.product_id] = product.name;
+          return lookup;
+        }, {});
 
-        // Fetch all orders
-        const ordersResponse = await fetch('http://127.0.0.1:8001/orders');
+        // Fetch orders
+        const ordersResponse = await fetch(' https://coms4153-cloud-computing.ue.r.appspot.com/orders');
         if (!ordersResponse.ok) {
-          throw new Error(`Error fetching orders: ${ordersResponse.statusText}`);
+          throw new Error('Error fetching orders');
         }
+
         const ordersData = await ordersResponse.json();
 
-        // Filter orders and fetch tracking details
-        const filteredOrders = await Promise.all(
-          ordersData.orders
-            .filter((order) =>
-              order.items.some((item) => sellerProductIds.includes(item.product_id))
-            )
-            .map(async (order) => {
-              const relevantItems = order.items.filter((item) =>
-                sellerProductIds.includes(item.product_id)
-              );
+        // Filter orders to include only relevant items
+        const relevantOrders = ordersData.orders
+          .map((order) => {
+            const relevantItems = order.items.filter((item) =>
+              productNameLookup[item.product_id]
+            );
 
-              // Fetch tracking details for each order
-              const trackingResponse = await fetch(`http://127.0.0.1:8001/orders/${order.order_id}/track`);
-              const trackingData = trackingResponse.ok ? await trackingResponse.json() : null;
+            // Skip the order if it has no relevant products
+            if (relevantItems.length === 0) {
+              return null;
+            }
 
-              return {
-                orderNumber: order.order_id,
-                purchaser: `Customer ${order.customer_id}`,
-                itemOrdered: relevantItems
-                  .map((item) => `Product ${item.product_id} x${item.quantity}`)
-                  .join(', '),
-                quantity: relevantItems.reduce((sum, item) => sum + item.quantity, 0),
-                timeOrdered: new Date(order.created_date).toLocaleString(),
-                amount: `$${order.total_amount}`,
-                status: trackingData
-                  ? <a href={trackingData.tracking_url} target="_blank" rel="noopener noreferrer">
-                      Track Order
-                    </a>
-                  : 'Tracking Unavailable',
-                shippedTo: dashboardUrl, // Use the dashboard URL for the shipping column
-              };
-            })
+            return {
+              order,
+              relevantItems,
+            };
+          })
+          .filter((order) => order !== null); // Remove null entries
+
+        // Fetch tracking details for relevant orders
+        const trackingDetails = await Promise.all(
+          relevantOrders.map(async ({ order }) => {
+            try {
+              const trackingResponse = await fetch(`https://coms4153-cloud-computing.ue.r.appspot.com/orders/${order.order_id}/track`);
+              if (trackingResponse.ok) {
+                const trackingData = await trackingResponse.json();
+                return { order_id: order.order_id, tracking_url: trackingData.tracking_url };
+              }
+              return { order_id: order.order_id, tracking_url: null };
+            } catch {
+              return { order_id: order.order_id, tracking_url: null };
+            }
+          })
         );
 
-        setOrders(filteredOrders);
+        // Create a map for tracking URLs
+        const trackingMap = trackingDetails.reduce((map, tracking) => {
+          map[tracking.order_id] = tracking.tracking_url;
+          return map;
+        }, {});
+
+        // Process and set orders
+        const processedOrders = relevantOrders.map(({ order, relevantItems }) => ({
+          orderNumber: order.order_id,
+          purchaser: `Customer ${order.customer_id}`,
+          itemOrdered: relevantItems
+            .map((item) => productNameLookup[item.product_id])
+            .join(', '),
+          quantity: relevantItems.reduce((sum, item) => sum + item.quantity, 0),
+          timeOrdered: new Date(order.created_date).toLocaleString(),
+          amount: `$${order.total_amount}`,
+          status: trackingMap[order.order_id]
+            ? <a href={trackingMap[order.order_id]} target="_blank" rel="noopener noreferrer">
+                Track Order
+              </a>
+            : 'Tracking Unavailable',
+          shippedTo: dashboardUrl,
+        }));
+
+        setOrders(processedOrders);
       } catch (error) {
         console.error('Error fetching orders for seller:', error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchOrdersForSeller();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="orders-container">
@@ -89,41 +129,49 @@ const Orders = () => {
       </div>
       <div className="center">
         <h1>Orders</h1>
-        {orders.length > 0 ? (
-          <table className="orders-table">
-            <thead>
-              <tr>
-                <th>Order Number</th>
-                <th>Purchaser</th>
-                <th>Item Ordered</th>
-                <th>Quantity</th>
-                <th>Time Ordered</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Shipping</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order.orderNumber}>
-                  <td>{order.orderNumber}</td>
-                  <td>{order.purchaser}</td>
-                  <td>{order.itemOrdered}</td>
-                  <td>{order.quantity}</td>
-                  <td>{order.timeOrdered}</td>
-                  <td>{order.amount}</td>
-                  <td>{order.status}</td>
-                  <td>
-                    <a href={order.shippedTo} target="_blank" rel="noopener noreferrer">
-                      Dashboard
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {loading ? (
+          <p>Loading orders...</p>
         ) : (
-          <p>No orders available for your products.</p>
+          <>
+            <table className="orders-table">
+              <thead>
+                <tr>
+                  <th>Order Number</th>
+                  <th>Purchaser</th>
+                  <th>Item Ordered</th>
+                  <th>Quantity</th>
+                  <th>Time Ordered</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Shipping</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders.length > 0 ? (
+                  orders.map((order) => (
+                    <tr key={order.orderNumber}>
+                      <td>{order.orderNumber}</td>
+                      <td>{order.purchaser}</td>
+                      <td>{order.itemOrdered}</td>
+                      <td>{order.quantity}</td>
+                      <td>{order.timeOrdered}</td>
+                      <td>{order.amount}</td>
+                      <td>{order.status}</td>
+                      <td>
+                        <a href={order.shippedTo} target="_blank" rel="noopener noreferrer">
+                          Dashboard
+                        </a>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="8" style={{ textAlign: 'center' }}>No matching orders found.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
       <Footer />

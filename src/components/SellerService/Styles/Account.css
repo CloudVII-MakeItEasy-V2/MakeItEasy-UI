@@ -14,14 +14,13 @@
   border: 1px solid #ddd; /* Optional: Add a border */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
-  max-width: 500px; /* Restrict the width */
-  text-align: center; /* Center text inside the container */
-  margin-top: 100px;
+  width: 400px;
+  text-align: left; /* Center text inside the container */
+  margin-top: 50px;
 }
 
 /* Style for the back button */
 .back-button {
-  margin: 10px 0; /* Space around the button */
   padding: 10px 20px; /* Padding inside the button */
   background-color:#A17977; /* Button background color */
   color: white; /* Button text color */
@@ -51,4 +50,15 @@ p {
 
 strong {
   color: #A17977; /* Highlight strong text with a darker color */
+}
+
+.account-container div {
+  margin-bottom: 15px;
+  padding-left: 40px;
+}
+.account-container div strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
 }

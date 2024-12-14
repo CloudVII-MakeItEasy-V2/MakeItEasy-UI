@@ -18,15 +18,17 @@ const Account = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:5001/sellers/${sellerId}`);
+        const response = await fetch(`http://34.86.154.165:8000/seller/${sellerId}`);
         if (response.ok) {
           const data = await response.json();
-          setSellerInfo(data);
+          setSellerInfo(data); // Update state with seller info
         } else {
           console.error('Failed to fetch seller info');
+          alert(`Failed to fetch seller information. Status: ${response.status}`);
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error fetching seller info:', error);
+        alert('An error occurred while fetching seller information.');
       }
     };
 
@@ -34,6 +36,8 @@ const Account = () => {
   }, [navigate]);
 
   if (!sellerInfo) {
+    console.log('SellerInfo state is:', sellerInfo);
+    console.log('LocalStorage sellerId is:', localStorage.getItem('sellerId'));
     return <div>Loading...</div>;
   }
 
@@ -48,11 +52,26 @@ const Account = () => {
           Home
         </button>
         <h1>Seller Profile</h1>
-        <p><strong>Seller ID:</strong> {sellerInfo.id}</p>
-        <p><strong>Name:</strong> {sellerInfo.name}</p>
-        <p><strong>Email:</strong> {sellerInfo.email}</p>
-        <p><strong>Address:</strong> {sellerInfo.address || 'Not provided'}</p>
-        <p><strong>Phone:</strong> {sellerInfo.phone || 'Not provided'}</p>
+        <div>
+          <strong>Name:</strong>
+          <div>{sellerInfo.name}</div>
+        </div>
+        <div>
+          <strong>Email:</strong>
+          <div>{sellerInfo.email}</div>
+        </div>
+        <div>
+          <strong>Address:</strong>
+          <div>{sellerInfo.address || 'Not provided'}</div>
+        </div>
+        <div>
+          <strong>Phone:</strong>
+          <div>{sellerInfo.phone_number || 'Not provided'}</div>
+        </div>
+        <div>
+          <strong>Balance:</strong>
+          <div>{sellerInfo.balance !== null ? `$${sellerInfo.balance}` : 'Not provided'}</div>
+        </div>
       </div>
 
       {/* Footer */}

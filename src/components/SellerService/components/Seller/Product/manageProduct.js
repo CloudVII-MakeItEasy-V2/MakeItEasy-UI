@@ -16,7 +16,7 @@ const ManageProduct = () => {
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/seller/${sellerId}/products`, {
+      const response = await fetch(`http://34.86.154.165:8000/seller/${sellerId}/products`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -50,7 +50,7 @@ const ManageProduct = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/product/${productId}`, {
+      const response = await fetch(`http://34.86.154.165:8000/product/${productId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -100,7 +100,7 @@ const ManageProduct = () => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/product/update_stock', {
+      const response = await fetch('http://34.86.154.165:8000/product/update_stock', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

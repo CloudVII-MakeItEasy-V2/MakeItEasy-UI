@@ -92,7 +92,7 @@ thead tr {
 }
 
 .back-button:hover {
-  background-color: #6497b1; /* Change background color on hover */
+  background-color: #A17977; /* Change background color on hover */
 }
 
 /* Edit Button */
@@ -114,7 +114,7 @@ thead tr {
 
 /* Delete Button */
 .delete-button {
-  background-color: #03396c; /* Blue button background */
+  background-color: #A17977; /* Blue button background */
   color: white; /* Gray text color */
   border: none; /* No border */
   padding: 6px;

@@ -6,12 +6,16 @@ const SellerRegister = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [passwordHash, setPasswordHash] = useState('');
+  const [phone_number, setPhone] = useState('');
+  const [balance, setBalance] = useState('');
+  const [address, setAddress] = useState('');
+
   const [isRegistered, setIsRegistered] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async () => {
     // Validation: Ensure all fields are filled
-    if (!name || !email || !passwordHash) {
+    if (!name || !email || !passwordHash|| !phone_number|| !balance||!address) {
       alert("Please fill in all fields.");
       return;
     }
@@ -20,13 +24,16 @@ const SellerRegister = () => {
 
     try {
       // Send POST request to the backend
-      const response = await fetch('http://127.0.0.1:8000/seller/register', {
+      const response = await fetch('http://34.86.154.165:8000/seller/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           name: name, 
           email: email, 
-          password_hash: passwordHash 
+          password_hash: passwordHash ,
+          balance: balance,
+          phone_number: phone_number,
+          address: address
         })
       });
 
@@ -77,7 +84,6 @@ const SellerRegister = () => {
               value={name}
               className="input-field"
               onChange={(e) => {
-                console.log("Name input changed:", e.target.value);
                 setName(e.target.value);
               }}
             />
@@ -87,7 +93,6 @@ const SellerRegister = () => {
               value={email}
               className="input-field"
               onChange={(e) => {
-                console.log("Email input changed:", e.target.value);
                 setEmail(e.target.value);
               }}
             />
@@ -97,8 +102,34 @@ const SellerRegister = () => {
               value={passwordHash}
               className="input-fieldPassword"
               onChange={(e) => {
-                console.log("Password input changed:", e.target.value);
                 setPasswordHash(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              value={phone_number}
+              className="input-field"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Address"
+              value={address}
+              className="input-field"
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Balance"
+              value={balance}
+              className="input-field"
+              onChange={(e) => {
+                setBalance(e.target.value);
               }}
             />
             <button onClick={handleRegister} className="register-button">Register</button>

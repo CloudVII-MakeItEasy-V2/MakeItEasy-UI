@@ -16,7 +16,7 @@
 .orders-table th {
   background-color: #A17977;
   font-weight: bold;
-  color: #b3cde0;
+  color: white;
   width: 150px;
 }
 
@@ -50,4 +50,7 @@
 .orders-table th,
 .orders-table td {
   word-wrap: break-word; /* Allows text to wrap inside cells for long content */
+}
+.orders-table thead{
+  width: 1270px;
 }

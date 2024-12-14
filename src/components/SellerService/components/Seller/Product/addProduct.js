@@ -52,7 +52,7 @@ const AddProduct = () => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/product', {
+      const response = await fetch('http://34.86.154.165:8000/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

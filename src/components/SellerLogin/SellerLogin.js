@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import { useNavigate,Link  } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './SellerLogin.css';
 
-
 const SellerLogin = () => {
-  const [email, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`http://localhost:5001/sellers?email=${email}&password=${password}`);
-      const data = await response.json();
+      // Send login request to the server
+      const response = await fetch('http://34.86.154.165:8000/seller/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
-      if (data.length > 0) {
-        localStorage.setItem('sellerId', data[0].id);
-        navigate('/SellerService');
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('sellerId', data.seller_id); // Save seller_id in localStorage
+        navigate('/SellerService'); // Redirect to SellerService
       } else {
         alert('Login failed. Please check your credentials.');
       }
@@ -23,7 +27,6 @@ const SellerLogin = () => {
       console.error('Login error:', error);
     }
   };
-
 
   const Header = () => (
     <header className="header">
@@ -33,14 +36,14 @@ const SellerLogin = () => {
 
   return (
     <div className="login-page">
-      <Header /> 
+      <Header />
       <div className="login-container">
-      <h2> Seller Login</h2>   
+        <h2>Seller Login</h2>
         <input
           type="text"
           placeholder="Email"
           value={email}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
@@ -51,13 +54,9 @@ const SellerLogin = () => {
         <button onClick={handleLogin}>Login</button>
         {/* New Register Button */}
         <div>
-
-    
-       Not a customer yet?  <Link to="/SellerRegister">Click here to register!</Link>
+          Not a customer yet? <Link to="/SellerRegister">Click here to register!</Link>
         </div>
-
       </div>
-
       <footer className="footerStyle">© 2024 MakeItEasy. All rights reserved.</footer>
     </div>
   );
