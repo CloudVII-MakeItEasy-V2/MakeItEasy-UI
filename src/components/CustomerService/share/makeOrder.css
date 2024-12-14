@@ -20,23 +20,27 @@
   background-color: #2c0402;
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem; /* Reduced padding */
   position: fixed;
   width: 100%;
   bottom: 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Slightly smaller font size */
   letter-spacing: 0.5px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  height: 60px; /* Explicit height */
+  height: 40px; /* Shorter height */
 }
 
 /* Main content container */
 .makeOrder-container {
-  margin-top: 80px; /* Push content below the fixed header */
-  margin-bottom: 80px; /* Push content above the fixed footer */
+  margin-top: 60px; /* Push content below the fixed header */
+  margin-bottom: 50px; /* Push content above the fixed footer */
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
+  min-height: calc(100vh - 110px); /* Adjust for shorter footer */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space between content and checkout button */
 }
 
 /* Search box styles */
@@ -135,7 +139,7 @@
 /* Checkout button */
 .checkout-button {
   display: block; /* Ensure it's treated as a block for centering */
-  margin: 10px auto; /* Center the button horizontally */
+  margin: 0 auto 20px auto; /* Center the button horizontally */
   padding: 10px 20px; /* Compact padding for the button */
   font-size: 1rem;
   background-color: #AC7B77;
