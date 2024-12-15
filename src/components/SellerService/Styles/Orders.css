@@ -11,13 +11,24 @@
   padding: 12px;
   text-align: center; /* Center-align text in both header and data cells */
   vertical-align: middle; /* Align content vertically in the middle */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.orders-table tbody {
+  display: block;
+  max-height: 400px; /* Adjust to your preferred height */
+  overflow-y: auto;
+
 }
 
 .orders-table th {
   background-color: #A17977;
   font-weight: bold;
   color: white;
-  width: 150px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .orders-table tbody tr:hover {
@@ -52,5 +63,10 @@
   word-wrap: break-word; /* Allows text to wrap inside cells for long content */
 }
 .orders-table thead{
-  width: 1270px;
+  width: 100%;
+}
+.orders-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
