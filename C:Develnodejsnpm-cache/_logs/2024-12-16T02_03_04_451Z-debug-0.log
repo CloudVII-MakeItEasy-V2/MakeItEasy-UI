@@ -1,0 +1,213 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install gh-pages
+8 verbose argv "install" "gh-pages" "--save-dev"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_03_04_451Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_03_04_451Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly fetch manifest gh-pages@^5.0.0
+15 silly packumentCache full:https://registry.npmjs.org/gh-pages cache-miss
+16 http fetch GET https://registry.npmjs.org/gh-pages attempt 1 failed with ETIMEDOUT
+17 http fetch GET https://registry.npmjs.org/gh-pages attempt 2 failed with ETIMEDOUT
+18 http fetch GET https://registry.npmjs.org/gh-pages attempt 3 failed with ETIMEDOUT
+19 http fetch GET 200 https://registry.npmjs.org/gh-pages 105217ms (cache stale)
+20 silly packumentCache full:https://registry.npmjs.org/gh-pages set size:94683 disposed:false
+21 silly placeDep ROOT gh-pages@5.0.0 OK for: makeiteasy-ui@0.1.0 want: ^5.0.0
+22 silly fetch manifest globby@^6.1.0
+23 silly packumentCache full:https://registry.npmjs.org/globby cache-miss
+24 silly fetch manifest fs-extra@^8.1.0
+25 silly packumentCache full:https://registry.npmjs.org/fs-extra cache-miss
+26 silly fetch manifest commander@^2.18.0
+27 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+28 silly fetch manifest filenamify@^4.3.0
+29 silly packumentCache full:https://registry.npmjs.org/filenamify cache-miss
+30 silly fetch manifest email-addresses@^5.0.0
+31 silly packumentCache full:https://registry.npmjs.org/email-addresses cache-miss
+32 http fetch GET https://registry.npmjs.org/commander attempt 1 failed with ETIMEDOUT
+33 http fetch GET https://registry.npmjs.org/email-addresses attempt 1 failed with ETIMEDOUT
+34 http fetch GET https://registry.npmjs.org/filenamify attempt 1 failed with ETIMEDOUT
+35 http fetch GET https://registry.npmjs.org/globby attempt 1 failed with ETIMEDOUT
+36 http fetch GET https://registry.npmjs.org/fs-extra attempt 1 failed with ETIMEDOUT
+37 http fetch GET https://registry.npmjs.org/commander attempt 2 failed with ETIMEDOUT
+38 http fetch GET https://registry.npmjs.org/globby attempt 2 failed with ETIMEDOUT
+39 http fetch GET https://registry.npmjs.org/email-addresses attempt 2 failed with ETIMEDOUT
+40 http fetch GET https://registry.npmjs.org/fs-extra attempt 2 failed with ETIMEDOUT
+41 http fetch GET https://registry.npmjs.org/filenamify attempt 2 failed with ETIMEDOUT
+42 http fetch GET https://registry.npmjs.org/commander attempt 3 failed with ETIMEDOUT
+43 http fetch GET 200 https://registry.npmjs.org/commander 107270ms (cache stale)
+44 silly packumentCache full:https://registry.npmjs.org/commander set size:287527 disposed:false
+45 http fetch GET https://registry.npmjs.org/filenamify attempt 3 failed with ETIMEDOUT
+46 http fetch GET https://registry.npmjs.org/fs-extra attempt 3 failed with ETIMEDOUT
+47 http fetch GET https://registry.npmjs.org/email-addresses attempt 3 failed with ETIMEDOUT
+48 http fetch GET https://registry.npmjs.org/globby attempt 3 failed with ETIMEDOUT
+49 http fetch GET 200 https://registry.npmjs.org/filenamify 107281ms (cache stale)
+50 silly packumentCache full:https://registry.npmjs.org/filenamify set size:44415 disposed:false
+51 http fetch GET 200 https://registry.npmjs.org/email-addresses 107282ms (cache stale)
+52 silly packumentCache full:https://registry.npmjs.org/email-addresses set size:35827 disposed:false
+53 http fetch GET 200 https://registry.npmjs.org/globby 107284ms (cache stale)
+54 silly packumentCache full:https://registry.npmjs.org/globby set size:143186 disposed:false
+55 http fetch GET 200 https://registry.npmjs.org/fs-extra 107286ms (cache stale)
+56 silly packumentCache full:https://registry.npmjs.org/fs-extra set size:220803 disposed:false
+57 silly placeDep node_modules/gh-pages commander@2.20.3 OK for: gh-pages@5.0.0 want: ^2.18.0
+58 silly placeDep ROOT email-addresses@5.0.0 OK for: gh-pages@5.0.0 want: ^5.0.0
+59 silly placeDep ROOT filenamify@4.3.0 OK for: gh-pages@5.0.0 want: ^4.3.0
+60 silly placeDep node_modules/gh-pages fs-extra@8.1.0 OK for: gh-pages@5.0.0 want: ^8.1.0
+61 silly placeDep node_modules/gh-pages globby@6.1.0 OK for: gh-pages@5.0.0 want: ^6.1.0
+62 silly fetch manifest filename-reserved-regex@^2.0.0
+63 silly packumentCache full:https://registry.npmjs.org/filename-reserved-regex cache-miss
+64 silly fetch manifest strip-outer@^1.0.1
+65 silly packumentCache full:https://registry.npmjs.org/strip-outer cache-miss
+66 silly fetch manifest trim-repeated@^1.0.0
+67 silly packumentCache full:https://registry.npmjs.org/trim-repeated cache-miss
+68 silly fetch manifest jsonfile@^4.0.0
+69 silly packumentCache full:https://registry.npmjs.org/jsonfile cache-miss
+70 silly fetch manifest universalify@^0.1.0
+71 silly packumentCache full:https://registry.npmjs.org/universalify cache-miss
+72 silly fetch manifest array-union@^1.0.1
+73 silly packumentCache full:https://registry.npmjs.org/array-union cache-miss
+74 silly fetch manifest pinkie-promise@^2.0.0
+75 silly packumentCache full:https://registry.npmjs.org/pinkie-promise cache-miss
+76 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 1 failed with ETIMEDOUT
+77 http fetch GET https://registry.npmjs.org/array-union attempt 1 failed with ETIMEDOUT
+78 http fetch GET https://registry.npmjs.org/pinkie-promise attempt 1 failed with ETIMEDOUT
+79 http fetch GET https://registry.npmjs.org/jsonfile attempt 1 failed with ETIMEDOUT
+80 http fetch GET https://registry.npmjs.org/universalify attempt 1 failed with ETIMEDOUT
+81 http fetch GET https://registry.npmjs.org/trim-repeated attempt 1 failed with ETIMEDOUT
+82 http fetch GET https://registry.npmjs.org/strip-outer attempt 1 failed with ETIMEDOUT
+83 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 2 failed with ETIMEDOUT
+84 http fetch GET https://registry.npmjs.org/pinkie-promise attempt 2 failed with ETIMEDOUT
+85 http fetch GET https://registry.npmjs.org/array-union attempt 2 failed with ETIMEDOUT
+86 http fetch GET https://registry.npmjs.org/strip-outer attempt 2 failed with ETIMEDOUT
+87 http fetch GET https://registry.npmjs.org/trim-repeated attempt 2 failed with ETIMEDOUT
+88 http fetch GET https://registry.npmjs.org/universalify attempt 2 failed with ETIMEDOUT
+89 http fetch GET https://registry.npmjs.org/jsonfile attempt 2 failed with ETIMEDOUT
+90 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 3 failed with ETIMEDOUT
+91 http fetch GET https://registry.npmjs.org/array-union attempt 3 failed with ETIMEDOUT
+92 http fetch GET https://registry.npmjs.org/pinkie-promise attempt 3 failed with ETIMEDOUT
+93 http fetch GET https://registry.npmjs.org/jsonfile attempt 3 failed with ETIMEDOUT
+94 http fetch GET https://registry.npmjs.org/trim-repeated attempt 3 failed with ETIMEDOUT
+95 http fetch GET https://registry.npmjs.org/strip-outer attempt 3 failed with ETIMEDOUT
+96 http fetch GET https://registry.npmjs.org/universalify attempt 3 failed with ETIMEDOUT
+97 http fetch GET 200 https://registry.npmjs.org/pinkie-promise 107237ms (cache stale)
+98 silly packumentCache full:https://registry.npmjs.org/pinkie-promise set size:6122 disposed:false
+99 http fetch GET 200 https://registry.npmjs.org/array-union 107239ms (cache stale)
+100 silly packumentCache full:https://registry.npmjs.org/array-union set size:18386 disposed:false
+101 http fetch GET 200 https://registry.npmjs.org/jsonfile 107241ms (cache stale)
+102 silly packumentCache full:https://registry.npmjs.org/jsonfile set size:49739 disposed:false
+103 http fetch GET 200 https://registry.npmjs.org/universalify 107243ms (cache stale)
+104 silly packumentCache full:https://registry.npmjs.org/universalify set size:19431 disposed:false
+105 silly fetch manifest filename-reserved-regex@^2.0.0
+106 silly packumentCache full:https://registry.npmjs.org/filename-reserved-regex cache-miss
+107 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 1 failed with ETIMEDOUT
+108 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 2 failed with ETIMEDOUT
+109 http fetch GET 200 https://registry.npmjs.org/filename-reserved-regex 94936ms attempt #3 (cache miss)
+110 silly packumentCache full:https://registry.npmjs.org/filename-reserved-regex set size:undefined disposed:false
+111 silly fetch manifest strip-outer@^1.0.1
+112 silly packumentCache full:https://registry.npmjs.org/strip-outer cache-miss
+113 http fetch GET 200 https://registry.npmjs.org/strip-outer 194ms (cache miss)
+114 silly packumentCache full:https://registry.npmjs.org/strip-outer set size:undefined disposed:false
+115 silly fetch manifest trim-repeated@^1.0.0
+116 silly packumentCache full:https://registry.npmjs.org/trim-repeated cache-miss
+117 http fetch GET 200 https://registry.npmjs.org/trim-repeated 191ms (cache miss)
+118 silly packumentCache full:https://registry.npmjs.org/trim-repeated set size:undefined disposed:false
+119 silly placeDep ROOT filename-reserved-regex@2.0.0 OK for: filenamify@4.3.0 want: ^2.0.0
+120 silly placeDep ROOT strip-outer@1.0.1 OK for: filenamify@4.3.0 want: ^1.0.1
+121 silly placeDep ROOT trim-repeated@1.0.0 OK for: filenamify@4.3.0 want: ^1.0.0
+122 silly fetch manifest escape-string-regexp@^1.0.2
+123 silly packumentCache full:https://registry.npmjs.org/escape-string-regexp cache-miss
+124 silly fetch manifest escape-string-regexp@^1.0.2
+125 silly packumentCache full:https://registry.npmjs.org/escape-string-regexp cache-miss
+126 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp 184ms (cache miss)
+127 silly packumentCache full:https://registry.npmjs.org/escape-string-regexp set size:undefined disposed:false
+128 http fetch GET https://registry.npmjs.org/escape-string-regexp attempt 1 failed with ETIMEDOUT
+129 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp 24157ms attempt #2 (cache miss)
+130 silly packumentCache full:https://registry.npmjs.org/escape-string-regexp set size:undefined disposed:false
+131 silly placeDep node_modules/strip-outer escape-string-regexp@1.0.5 OK for: strip-outer@1.0.1 want: ^1.0.2
+132 silly placeDep node_modules/trim-repeated escape-string-regexp@1.0.5 OK for: trim-repeated@1.0.0 want: ^1.0.2
+133 silly placeDep node_modules/gh-pages jsonfile@4.0.0 OK for: fs-extra@8.1.0 want: ^4.0.0
+134 silly placeDep node_modules/gh-pages universalify@0.1.2 OK for: fs-extra@8.1.0 want: ^0.1.0
+135 silly placeDep node_modules/gh-pages array-union@1.0.2 OK for: globby@6.1.0 want: ^1.0.1
+136 silly placeDep ROOT pinkie-promise@2.0.1 OK for: globby@6.1.0 want: ^2.0.0
+137 silly fetch manifest array-uniq@^1.0.1
+138 silly packumentCache full:https://registry.npmjs.org/array-uniq cache-miss
+139 silly fetch manifest pinkie@^2.0.0
+140 silly packumentCache full:https://registry.npmjs.org/pinkie cache-miss
+141 http fetch GET 200 https://registry.npmjs.org/array-uniq 170ms (cache miss)
+142 silly packumentCache full:https://registry.npmjs.org/array-uniq set size:undefined disposed:false
+143 http fetch GET 200 https://registry.npmjs.org/pinkie 2063ms (cache miss)
+144 silly packumentCache full:https://registry.npmjs.org/pinkie set size:undefined disposed:false
+145 silly placeDep ROOT pinkie@2.0.4 OK for: pinkie-promise@2.0.1 want: ^2.0.0
+146 silly placeDep ROOT array-uniq@1.0.3 OK for: array-union@1.0.2 want: ^1.0.1
+147 silly reify mark retired [
+147 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/@babel/plugin-proposal-private-property-in-object'
+147 silly reify ]
+148 silly reify mark retired [
+148 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/typescript',
+148 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/tsc',
+148 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/tsserver'
+148 silly reify ]
+149 silly reify moves {
+149 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/@babel/plugin-proposal-private-property-in-object': '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/@babel/.plugin-proposal-private-property-in-object-jHudxs3i',
+149 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/typescript': '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.typescript-XsRqY1aK',
+149 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/tsc': '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/.tsc-cFPqerR4',
+149 silly reify   '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/tsserver': '/Users/lixiachen/Desktop/MakeItEasy-UI/node_modules/.bin/.tsserver-ecaeldTg'
+149 silly reify }
+150 silly tarball no local data for array-uniq@https://registry.npmjs.org/array-uniq/-/array-uniq-1.0.3.tgz. Extracting by manifest.
+151 silly tarball no local data for pinkie@https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz. Extracting by manifest.
+152 silly tarball no local data for pinkie-promise@https://registry.npmjs.org/pinkie-promise/-/pinkie-promise-2.0.1.tgz. Extracting by manifest.
+153 silly tarball no local data for trim-repeated@https://registry.npmjs.org/trim-repeated/-/trim-repeated-1.0.0.tgz. Extracting by manifest.
+154 silly tarball no local data for strip-outer@https://registry.npmjs.org/strip-outer/-/strip-outer-1.0.1.tgz. Extracting by manifest.
+155 silly tarball no local data for filename-reserved-regex@https://registry.npmjs.org/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz. Extracting by manifest.
+156 silly tarball no local data for filenamify@https://registry.npmjs.org/filenamify/-/filenamify-4.3.0.tgz. Extracting by manifest.
+157 silly tarball no local data for gh-pages@https://registry.npmjs.org/gh-pages/-/gh-pages-5.0.0.tgz. Extracting by manifest.
+158 silly tarball no local data for email-addresses@https://registry.npmjs.org/email-addresses/-/email-addresses-5.0.0.tgz. Extracting by manifest.
+159 silly tarball no local data for typescript@https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz. Extracting by manifest.
+160 silly tarball no local data for escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz. Extracting by manifest.
+161 silly tarball no local data for array-union@https://registry.npmjs.org/array-union/-/array-union-1.0.2.tgz. Extracting by manifest.
+162 silly tarball no local data for escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz. Extracting by manifest.
+163 silly tarball no local data for globby@https://registry.npmjs.org/globby/-/globby-6.1.0.tgz. Extracting by manifest.
+164 silly tarball no local data for commander@https://registry.npmjs.org/commander/-/commander-2.20.3.tgz. Extracting by manifest.
+165 silly tarball no local data for @babel/plugin-proposal-private-property-in-object@https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.0-placeholder-for-preset-env.2.tgz. Extracting by manifest.
+166 http fetch GET 200 https://registry.npmjs.org/array-uniq/-/array-uniq-1.0.3.tgz 157ms (cache miss)
+167 http fetch GET 200 https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz 157ms (cache miss)
+168 http fetch GET 200 https://registry.npmjs.org/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.0-placeholder-for-preset-env.2.tgz 331ms (cache miss)
+169 http fetch GET 200 https://registry.npmjs.org/strip-outer/-/strip-outer-1.0.1.tgz 2086ms (cache miss)
+170 http fetch GET 200 https://registry.npmjs.org/filenamify/-/filenamify-4.3.0.tgz 2089ms (cache miss)
+171 http fetch GET 200 https://registry.npmjs.org/trim-repeated/-/trim-repeated-1.0.0.tgz 2089ms (cache miss)
+172 http fetch GET 200 https://registry.npmjs.org/pinkie-promise/-/pinkie-promise-2.0.1.tgz 2091ms (cache miss)
+173 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz 2093ms (cache miss)
+174 http fetch GET 200 https://registry.npmjs.org/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz 2095ms (cache miss)
+175 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz 2095ms (cache miss)
+176 http fetch GET 200 https://registry.npmjs.org/array-union/-/array-union-1.0.2.tgz 2095ms (cache miss)
+177 http fetch GET 200 https://registry.npmjs.org/commander/-/commander-2.20.3.tgz 2098ms (cache miss)
+178 http fetch GET 200 https://registry.npmjs.org/email-addresses/-/email-addresses-5.0.0.tgz 2100ms (cache miss)
+179 http fetch GET 200 https://registry.npmjs.org/gh-pages/-/gh-pages-5.0.0.tgz 2102ms (cache miss)
+180 http fetch GET 200 https://registry.npmjs.org/globby/-/globby-6.1.0.tgz 2115ms (cache miss)
+181 verbose stack Error: read ETIMEDOUT
+181 verbose stack     at TLSWrap.onStreamRead (node:internal/stream_base_commons:218:20)
+182 error code ETIMEDOUT
+183 error syscall read
+184 error errno -60
+185 error network read ETIMEDOUT
+186 error network This is a problem related to network connectivity.
+186 error network In most cases you are behind a proxy or have bad network settings.
+186 error network
+186 error network If you are behind a proxy, please make sure that the
+186 error network 'proxy' config is set properly.  See: 'npm help config'
+187 silly unfinished npm timer reify 1734314584623
+188 silly unfinished npm timer reify:unpack 1734315026259
+189 silly unfinished npm timer reifyNode:node_modules/typescript 1734315026260
+190 verbose cwd /Users/lixiachen/Desktop/MakeItEasy-UI
+191 verbose os Darwin 23.6.0
+192 verbose node v22.8.0
+193 verbose npm  v10.8.3
+194 verbose exit -60
+195 verbose code -60
+196 error A complete log of this run can be found in: /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_03_04_451Z-debug-0.log

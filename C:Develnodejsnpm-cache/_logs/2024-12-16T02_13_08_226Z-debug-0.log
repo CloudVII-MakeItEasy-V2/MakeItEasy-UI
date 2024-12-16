@@ -1,0 +1,20 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install gh-pages
+8 verbose argv "install" "gh-pages" "--save-dev"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_13_08_226Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_13_08_226Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest gh-pages@^5.0.0
+16 silly packumentCache full:https://registry.npmjs.org/gh-pages cache-miss
+17 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+18 http fetch GET https://registry.npmjs.org/gh-pages attempt 1 failed with ETIMEDOUT
+19 http fetch GET https://registry.npmjs.org/gh-pages attempt 2 failed with ETIMEDOUT

@@ -1,0 +1,69 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install gh-pages
+8 verbose argv "install" "gh-pages" "--save-dev"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T01_58_50_638Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T01_58_50_638Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly fetch manifest gh-pages@^5.0.0
+15 silly packumentCache full:https://registry.npmjs.org/gh-pages cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/gh-pages 140ms (cache hit)
+17 silly packumentCache full:https://registry.npmjs.org/gh-pages set size:94683 disposed:false
+18 silly placeDep ROOT gh-pages@5.0.0 OK for: makeiteasy-ui@0.1.0 want: ^5.0.0
+19 silly fetch manifest globby@^6.1.0
+20 silly packumentCache full:https://registry.npmjs.org/globby cache-miss
+21 silly fetch manifest fs-extra@^8.1.0
+22 silly packumentCache full:https://registry.npmjs.org/fs-extra cache-miss
+23 silly fetch manifest commander@^2.18.0
+24 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+25 silly fetch manifest filenamify@^4.3.0
+26 silly packumentCache full:https://registry.npmjs.org/filenamify cache-miss
+27 silly fetch manifest email-addresses@^5.0.0
+28 silly packumentCache full:https://registry.npmjs.org/email-addresses cache-miss
+29 http fetch GET 200 https://registry.npmjs.org/fs-extra 3ms (cache hit)
+30 silly packumentCache full:https://registry.npmjs.org/fs-extra set size:220803 disposed:false
+31 http fetch GET 200 https://registry.npmjs.org/commander 6ms (cache hit)
+32 silly packumentCache full:https://registry.npmjs.org/commander set size:287527 disposed:false
+33 http fetch GET 200 https://registry.npmjs.org/filenamify 9ms (cache hit)
+34 silly packumentCache full:https://registry.npmjs.org/filenamify set size:44415 disposed:false
+35 http fetch GET 200 https://registry.npmjs.org/globby 9ms (cache hit)
+36 silly packumentCache full:https://registry.npmjs.org/globby set size:143186 disposed:false
+37 http fetch GET 200 https://registry.npmjs.org/email-addresses 10ms (cache hit)
+38 silly packumentCache full:https://registry.npmjs.org/email-addresses set size:35827 disposed:false
+39 silly placeDep node_modules/gh-pages commander@2.20.3 OK for: gh-pages@5.0.0 want: ^2.18.0
+40 silly placeDep ROOT email-addresses@5.0.0 OK for: gh-pages@5.0.0 want: ^5.0.0
+41 silly placeDep ROOT filenamify@4.3.0 OK for: gh-pages@5.0.0 want: ^4.3.0
+42 silly placeDep node_modules/gh-pages fs-extra@8.1.0 OK for: gh-pages@5.0.0 want: ^8.1.0
+43 silly placeDep node_modules/gh-pages globby@6.1.0 OK for: gh-pages@5.0.0 want: ^6.1.0
+44 silly fetch manifest filename-reserved-regex@^2.0.0
+45 silly packumentCache full:https://registry.npmjs.org/filename-reserved-regex cache-miss
+46 silly fetch manifest strip-outer@^1.0.1
+47 silly packumentCache full:https://registry.npmjs.org/strip-outer cache-miss
+48 silly fetch manifest trim-repeated@^1.0.0
+49 silly packumentCache full:https://registry.npmjs.org/trim-repeated cache-miss
+50 silly fetch manifest jsonfile@^4.0.0
+51 silly packumentCache full:https://registry.npmjs.org/jsonfile cache-miss
+52 silly fetch manifest universalify@^0.1.0
+53 silly packumentCache full:https://registry.npmjs.org/universalify cache-miss
+54 silly fetch manifest array-union@^1.0.1
+55 silly packumentCache full:https://registry.npmjs.org/array-union cache-miss
+56 silly fetch manifest pinkie-promise@^2.0.0
+57 silly packumentCache full:https://registry.npmjs.org/pinkie-promise cache-miss
+58 http fetch GET 200 https://registry.npmjs.org/jsonfile 25ms (cache hit)
+59 silly packumentCache full:https://registry.npmjs.org/jsonfile set size:49739 disposed:false
+60 http fetch GET 200 https://registry.npmjs.org/universalify 26ms (cache hit)
+61 silly packumentCache full:https://registry.npmjs.org/universalify set size:19431 disposed:false
+62 http fetch GET 200 https://registry.npmjs.org/pinkie-promise 27ms (cache hit)
+63 silly packumentCache full:https://registry.npmjs.org/pinkie-promise set size:6122 disposed:false
+64 http fetch GET 200 https://registry.npmjs.org/array-union 27ms (cache hit)
+65 silly packumentCache full:https://registry.npmjs.org/array-union set size:18386 disposed:false
+66 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 1 failed with ETIMEDOUT
+67 http fetch GET https://registry.npmjs.org/strip-outer attempt 1 failed with ETIMEDOUT
+68 http fetch GET https://registry.npmjs.org/trim-repeated attempt 1 failed with ETIMEDOUT

@@ -1,0 +1,42 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install gh-pages
+8 verbose argv "install" "gh-pages" "--save-dev"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_14_32_758Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_14_32_758Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest gh-pages@^5.0.0
+16 silly packumentCache full:https://registry.npmjs.org/gh-pages cache-miss
+17 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+18 http fetch GET https://registry.npmjs.org/gh-pages attempt 1 failed with ETIMEDOUT
+19 http fetch GET 200 https://registry.npmjs.org/gh-pages 22813ms attempt #2 (cache miss)
+20 silly packumentCache full:https://registry.npmjs.org/gh-pages set size:undefined disposed:false
+21 silly placeDep ROOT gh-pages@5.0.0 OK for: makeiteasy-ui@0.1.0 want: ^5.0.0
+22 silly fetch manifest globby@^6.1.0
+23 silly packumentCache full:https://registry.npmjs.org/globby cache-miss
+24 silly fetch manifest fs-extra@^8.1.0
+25 silly packumentCache full:https://registry.npmjs.org/fs-extra cache-miss
+26 silly fetch manifest commander@^2.18.0
+27 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+28 silly fetch manifest filenamify@^4.3.0
+29 silly packumentCache full:https://registry.npmjs.org/filenamify cache-miss
+30 silly fetch manifest email-addresses@^5.0.0
+31 silly packumentCache full:https://registry.npmjs.org/email-addresses cache-miss
+32 http fetch GET 200 https://registry.npmjs.org/globby 175ms (cache miss)
+33 silly packumentCache full:https://registry.npmjs.org/globby set size:undefined disposed:false
+34 http fetch GET https://registry.npmjs.org/email-addresses attempt 1 failed with ETIMEDOUT
+35 http fetch GET https://registry.npmjs.org/filenamify attempt 1 failed with ETIMEDOUT
+36 http fetch GET https://registry.npmjs.org/commander attempt 1 failed with ETIMEDOUT
+37 http fetch GET https://registry.npmjs.org/fs-extra attempt 1 failed with ETIMEDOUT
+38 http fetch GET https://registry.npmjs.org/commander attempt 2 failed with ETIMEDOUT
+39 http fetch GET https://registry.npmjs.org/email-addresses attempt 2 failed with ETIMEDOUT
+40 http fetch GET https://registry.npmjs.org/fs-extra attempt 2 failed with ETIMEDOUT
+41 http fetch GET https://registry.npmjs.org/filenamify attempt 2 failed with ETIMEDOUT

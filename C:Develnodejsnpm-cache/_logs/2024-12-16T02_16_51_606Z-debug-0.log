@@ -1,0 +1,40 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm view http-proxy-middleware description dist-tags.latest homepage version time
+8 verbose argv "view" "--json" "--" "http-proxy-middleware" "description" "dist-tags.latest" "homepage" "version" "time"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_16_51_606Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_16_51_606Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 http fetch GET https://registry.npmjs.org/http-proxy-middleware attempt 1 failed with ETIMEDOUT
+14 http fetch GET https://registry.npmjs.org/http-proxy-middleware attempt 2 failed with ETIMEDOUT
+15 http fetch GET https://registry.npmjs.org/http-proxy-middleware attempt 3 failed with ETIMEDOUT
+16 verbose type system
+17 verbose stack FetchError: request to https://registry.npmjs.org/http-proxy-middleware failed, reason: read ETIMEDOUT
+17 verbose stack     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14)
+17 verbose stack     at ClientRequest.emit (node:events:520:28)
+17 verbose stack     at emitErrorEvent (node:_http_client:103:11)
+17 verbose stack     at _destroy (node:_http_client:886:9)
+17 verbose stack     at onSocketNT (node:_http_client:906:5)
+17 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+18 error code ETIMEDOUT
+19 error syscall read
+20 error errno ETIMEDOUT
+21 error network request to https://registry.npmjs.org/http-proxy-middleware failed, reason: read ETIMEDOUT
+22 error network This is a problem related to network connectivity.
+22 error network In most cases you are behind a proxy or have bad network settings.
+22 error network
+22 error network If you are behind a proxy, please make sure that the
+22 error network 'proxy' config is set properly.  See: 'npm help config'
+23 verbose cwd /Users/lixiachen/Desktop/MakeItEasy-UI
+24 verbose os Darwin 23.6.0
+25 verbose node v22.8.0
+26 verbose npm  v10.8.3
+27 verbose exit 1
+28 verbose code 1
+29 error A complete log of this run can be found in: /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_16_51_606Z-debug-0.log

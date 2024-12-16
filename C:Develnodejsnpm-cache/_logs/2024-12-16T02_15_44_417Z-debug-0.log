@@ -1,0 +1,79 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.8.3
+2 info using node@v22.8.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lixiachen/Desktop/MakeItEasy-UI/.npmrc
+5 silly config load:file:/Users/lixiachen/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--legacy-peer-deps"
+9 verbose logfile logs-max:10 dir:/Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_15_44_417Z-
+10 verbose logfile /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_15_44_417Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest gh-pages@^5.0.0
+16 silly packumentCache full:https://registry.npmjs.org/gh-pages cache-miss
+17 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+18 http fetch GET 200 https://registry.npmjs.org/gh-pages 12ms (cache hit)
+19 silly packumentCache full:https://registry.npmjs.org/gh-pages set size:94683 disposed:false
+20 silly placeDep ROOT gh-pages@5.0.0 OK for: makeiteasy-ui@0.1.0 want: ^5.0.0
+21 silly fetch manifest globby@^6.1.0
+22 silly packumentCache full:https://registry.npmjs.org/globby cache-miss
+23 silly fetch manifest fs-extra@^8.1.0
+24 silly packumentCache full:https://registry.npmjs.org/fs-extra cache-miss
+25 silly fetch manifest commander@^2.18.0
+26 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+27 silly fetch manifest filenamify@^4.3.0
+28 silly packumentCache full:https://registry.npmjs.org/filenamify cache-miss
+29 silly fetch manifest email-addresses@^5.0.0
+30 silly packumentCache full:https://registry.npmjs.org/email-addresses cache-miss
+31 http fetch GET 200 https://registry.npmjs.org/globby 71ms (cache hit)
+32 silly packumentCache full:https://registry.npmjs.org/globby set size:143186 disposed:false
+33 http fetch GET https://registry.npmjs.org/email-addresses attempt 1 failed with ETIMEDOUT
+34 http fetch GET https://registry.npmjs.org/filenamify attempt 1 failed with ETIMEDOUT
+35 http fetch GET https://registry.npmjs.org/commander attempt 1 failed with ETIMEDOUT
+36 http fetch GET https://registry.npmjs.org/fs-extra attempt 1 failed with ETIMEDOUT
+37 http fetch GET https://registry.npmjs.org/fs-extra attempt 2 failed with ETIMEDOUT
+38 http fetch GET https://registry.npmjs.org/commander attempt 2 failed with ETIMEDOUT
+39 http fetch GET https://registry.npmjs.org/filenamify attempt 2 failed with ETIMEDOUT
+40 http fetch GET https://registry.npmjs.org/email-addresses attempt 2 failed with ETIMEDOUT
+41 http fetch GET 200 https://registry.npmjs.org/email-addresses 94183ms attempt #3 (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/email-addresses set size:undefined disposed:false
+43 http fetch GET 200 https://registry.npmjs.org/filenamify 94184ms attempt #3 (cache miss)
+44 silly packumentCache full:https://registry.npmjs.org/filenamify set size:undefined disposed:false
+45 http fetch GET 200 https://registry.npmjs.org/fs-extra 94188ms attempt #3 (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/fs-extra set size:undefined disposed:false
+47 http fetch GET 200 https://registry.npmjs.org/commander 94191ms attempt #3 (cache miss)
+48 silly packumentCache full:https://registry.npmjs.org/commander set size:undefined disposed:false
+49 silly placeDep node_modules/gh-pages commander@2.20.3 OK for: gh-pages@5.0.0 want: ^2.18.0
+50 silly placeDep ROOT email-addresses@5.0.0 OK for: gh-pages@5.0.0 want: ^5.0.0
+51 silly placeDep ROOT filenamify@4.3.0 OK for: gh-pages@5.0.0 want: ^4.3.0
+52 silly placeDep node_modules/gh-pages fs-extra@8.1.0 OK for: gh-pages@5.0.0 want: ^8.1.0
+53 silly placeDep node_modules/gh-pages globby@6.1.0 OK for: gh-pages@5.0.0 want: ^6.1.0
+54 silly fetch manifest filename-reserved-regex@^2.0.0
+55 silly packumentCache full:https://registry.npmjs.org/filename-reserved-regex cache-miss
+56 silly fetch manifest strip-outer@^1.0.1
+57 silly packumentCache full:https://registry.npmjs.org/strip-outer cache-miss
+58 silly fetch manifest trim-repeated@^1.0.0
+59 silly packumentCache full:https://registry.npmjs.org/trim-repeated cache-miss
+60 silly fetch manifest jsonfile@^4.0.0
+61 silly packumentCache full:https://registry.npmjs.org/jsonfile cache-miss
+62 silly fetch manifest universalify@^0.1.0
+63 silly packumentCache full:https://registry.npmjs.org/universalify cache-miss
+64 silly fetch manifest array-union@^1.0.1
+65 silly packumentCache full:https://registry.npmjs.org/array-union cache-miss
+66 silly fetch manifest pinkie-promise@^2.0.0
+67 silly packumentCache full:https://registry.npmjs.org/pinkie-promise cache-miss
+68 http fetch GET https://registry.npmjs.org/strip-outer attempt 1 failed with ETIMEDOUT
+69 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 1 failed with ETIMEDOUT
+70 http fetch GET https://registry.npmjs.org/jsonfile attempt 1 failed with ETIMEDOUT
+71 http fetch GET https://registry.npmjs.org/trim-repeated attempt 1 failed with ETIMEDOUT
+72 http fetch GET https://registry.npmjs.org/pinkie-promise attempt 1 failed with ETIMEDOUT
+73 http fetch GET https://registry.npmjs.org/array-union attempt 1 failed with ETIMEDOUT
+74 http fetch GET https://registry.npmjs.org/universalify attempt 1 failed with ETIMEDOUT
+75 http fetch GET https://registry.npmjs.org/filename-reserved-regex attempt 2 failed with ETIMEDOUT
+76 http fetch GET https://registry.npmjs.org/strip-outer attempt 2 failed with ETIMEDOUT
+77 http fetch GET https://registry.npmjs.org/trim-repeated attempt 2 failed with ETIMEDOUT
+78 http fetch GET https://registry.npmjs.org/jsonfile attempt 2 failed with ETIMEDOUT
