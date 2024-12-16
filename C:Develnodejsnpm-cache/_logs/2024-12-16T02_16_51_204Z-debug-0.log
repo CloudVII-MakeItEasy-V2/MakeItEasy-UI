@@ -13,3 +13,27 @@
 12 silly logfile done cleaning log files
 13 http fetch GET https://registry.npmjs.org/react-scripts attempt 1 failed with ETIMEDOUT
 14 http fetch GET https://registry.npmjs.org/react-scripts attempt 2 failed with ETIMEDOUT
+15 http fetch GET https://registry.npmjs.org/react-scripts attempt 3 failed with ETIMEDOUT
+16 verbose type system
+17 verbose stack FetchError: request to https://registry.npmjs.org/react-scripts failed, reason: 
+17 verbose stack     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14)
+17 verbose stack     at ClientRequest.emit (node:events:520:28)
+17 verbose stack     at emitErrorEvent (node:_http_client:103:11)
+17 verbose stack     at _destroy (node:_http_client:886:9)
+17 verbose stack     at onSocketNT (node:_http_client:906:5)
+17 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+18 error code ETIMEDOUT
+19 error errno ETIMEDOUT
+20 error network request to https://registry.npmjs.org/react-scripts failed, reason: 
+21 error network This is a problem related to network connectivity.
+21 error network In most cases you are behind a proxy or have bad network settings.
+21 error network
+21 error network If you are behind a proxy, please make sure that the
+21 error network 'proxy' config is set properly.  See: 'npm help config'
+22 verbose cwd /Users/lixiachen/Desktop/MakeItEasy-UI
+23 verbose os Darwin 23.6.0
+24 verbose node v22.8.0
+25 verbose npm  v10.8.3
+26 verbose exit 1
+27 verbose code 1
+28 error A complete log of this run can be found in: /Users/lixiachen/Desktop/MakeItEasy-UI/C:Develnodejsnpm-cache/_logs/2024-12-16T02_16_51_204Z-debug-0.log
